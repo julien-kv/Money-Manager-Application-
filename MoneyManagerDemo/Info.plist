@@ -20,6 +20,12 @@
 				</dict>
 			</array>
 		</dict>
+		<key>Fonts provided by application</key>
+		<array>
+			<string>Lato-Bold.ttf</string>
+			<string>Lato-Regular.ttf</string>
+			<string>Lato-Heavy.ttf</string>
+		</array>
 	</dict>
 </dict>
 </plist>

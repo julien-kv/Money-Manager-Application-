@@ -7,15 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F17743B570B78F58EDB2B8AE /* Pods_MoneyManagerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC5B2F5262D313C7A65C5D0 /* Pods_MoneyManagerDemo.framework */; };
 		F928D820272A7DFF0013DC31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928D81F272A7DFF0013DC31 /* AppDelegate.swift */; };
 		F928D822272A7DFF0013DC31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928D821272A7DFF0013DC31 /* SceneDelegate.swift */; };
 		F928D824272A7DFF0013DC31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928D823272A7DFF0013DC31 /* ViewController.swift */; };
 		F928D827272A7DFF0013DC31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F928D825272A7DFF0013DC31 /* Main.storyboard */; };
 		F928D829272A7E020013DC31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F928D828272A7E020013DC31 /* Assets.xcassets */; };
 		F928D82C272A7E020013DC31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F928D82A272A7E020013DC31 /* LaunchScreen.storyboard */; };
+		F928D838272A80060013DC31 /* CustomOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = F928D833272A80050013DC31 /* CustomOverlay.xib */; };
+		F928D839272A80060013DC31 /* CustomOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928D834272A80050013DC31 /* CustomOverlay.swift */; };
+		F928D83B272A80060013DC31 /* CustomPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = F928D836272A80050013DC31 /* CustomPage.xib */; };
+		F928D83C272A80060013DC31 /* CustomPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928D837272A80060013DC31 /* CustomPage.swift */; };
+		F928D87F272A811C0013DC31 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F928D87C272A811C0013DC31 /* Lato-Bold.ttf */; };
+		F928D880272A811C0013DC31 /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F928D87D272A811C0013DC31 /* Lato-Heavy.ttf */; };
+		F928D881272A811C0013DC31 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F928D87E272A811C0013DC31 /* Lato-Regular.ttf */; };
+		F928D886272A90310013DC31 /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928D885272A90310013DC31 /* OnBoardViewController.swift */; };
+		F928D888272A95F50013DC31 /* OnBoardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F928D887272A95F50013DC31 /* OnBoardViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ABC5B2F5262D313C7A65C5D0 /* Pods_MoneyManagerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyManagerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B370E2C218DE3FC2F44D832C /* Pods-MoneyManagerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyManagerDemo.release.xcconfig"; path = "Target Support Files/Pods-MoneyManagerDemo/Pods-MoneyManagerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		DB9740283C8AEEE38D8E3CE8 /* Pods-MoneyManagerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyManagerDemo.debug.xcconfig"; path = "Target Support Files/Pods-MoneyManagerDemo/Pods-MoneyManagerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		F928D81C272A7DFF0013DC31 /* MoneyManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F928D81F272A7DFF0013DC31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F928D821272A7DFF0013DC31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +37,15 @@
 		F928D828272A7E020013DC31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F928D82B272A7E020013DC31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F928D82D272A7E020013DC31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F928D833272A80050013DC31 /* CustomOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomOverlay.xib; sourceTree = "<group>"; };
+		F928D834272A80050013DC31 /* CustomOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOverlay.swift; sourceTree = "<group>"; };
+		F928D836272A80050013DC31 /* CustomPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPage.xib; sourceTree = "<group>"; };
+		F928D837272A80060013DC31 /* CustomPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPage.swift; sourceTree = "<group>"; };
+		F928D87C272A811C0013DC31 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "../../../../SwiftyOnboard/Example/SwiftyOnboardExample/Lato-Bold.ttf"; sourceTree = "<group>"; };
+		F928D87D272A811C0013DC31 /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Heavy.ttf"; path = "../../../../SwiftyOnboard/Example/SwiftyOnboardExample/Lato-Heavy.ttf"; sourceTree = "<group>"; };
+		F928D87E272A811C0013DC31 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../SwiftyOnboard/Example/SwiftyOnboardExample/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		F928D885272A90310013DC31 /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
+		F928D887272A95F50013DC31 /* OnBoardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoardViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +53,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F17743B570B78F58EDB2B8AE /* Pods_MoneyManagerDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55C685C07BC7147BF9B685B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB9740283C8AEEE38D8E3CE8 /* Pods-MoneyManagerDemo.debug.xcconfig */,
+				B370E2C218DE3FC2F44D832C /* Pods-MoneyManagerDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E5696E29CDE715F2660003C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABC5B2F5262D313C7A65C5D0 /* Pods_MoneyManagerDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F928D813272A7DFF0013DC31 = {
 			isa = PBXGroup;
 			children = (
 				F928D81E272A7DFF0013DC31 /* MoneyManagerDemo */,
 				F928D81D272A7DFF0013DC31 /* Products */,
+				55C685C07BC7147BF9B685B5 /* Pods */,
+				E5696E29CDE715F2660003C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +98,56 @@
 		F928D81E272A7DFF0013DC31 /* MoneyManagerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F928D884272A8F6E0013DC31 /* View Controller */,
+				F928D883272A8F5F0013DC31 /* View */,
+				F928D87B272A810E0013DC31 /* Fonts */,
 				F928D81F272A7DFF0013DC31 /* AppDelegate.swift */,
 				F928D821272A7DFF0013DC31 /* SceneDelegate.swift */,
-				F928D823272A7DFF0013DC31 /* ViewController.swift */,
-				F928D825272A7DFF0013DC31 /* Main.storyboard */,
 				F928D828272A7E020013DC31 /* Assets.xcassets */,
-				F928D82A272A7E020013DC31 /* LaunchScreen.storyboard */,
 				F928D82D272A7E020013DC31 /* Info.plist */,
 			);
 			path = MoneyManagerDemo;
+			sourceTree = "<group>";
+		};
+		F928D87B272A810E0013DC31 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F928D87C272A811C0013DC31 /* Lato-Bold.ttf */,
+				F928D87D272A811C0013DC31 /* Lato-Heavy.ttf */,
+				F928D87E272A811C0013DC31 /* Lato-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F928D883272A8F5F0013DC31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F928D825272A7DFF0013DC31 /* Main.storyboard */,
+				F928D82A272A7E020013DC31 /* LaunchScreen.storyboard */,
+				F928D833272A80050013DC31 /* CustomOverlay.xib */,
+				F928D836272A80050013DC31 /* CustomPage.xib */,
+				F928D887272A95F50013DC31 /* OnBoardViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F928D884272A8F6E0013DC31 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F928D823272A7DFF0013DC31 /* ViewController.swift */,
+				F9D83A68272BAA3000B581EB /* Onboarding */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		F9D83A68272BAA3000B581EB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F928D885272A90310013DC31 /* OnBoardViewController.swift */,
+				F928D834272A80050013DC31 /* CustomOverlay.swift */,
+				F928D837272A80060013DC31 /* CustomPage.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +157,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F928D830272A7E020013DC31 /* Build configuration list for PBXNativeTarget "MoneyManagerDemo" */;
 			buildPhases = (
+				C02BD652081D9DB9EA9ADF12 /* [CP] Check Pods Manifest.lock */,
 				F928D818272A7DFF0013DC31 /* Sources */,
 				F928D819272A7DFF0013DC31 /* Frameworks */,
 				F928D81A272A7DFF0013DC31 /* Resources */,
+				B933B31F90E09EACC0D1B141 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,13 +210,61 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F928D880272A811C0013DC31 /* Lato-Heavy.ttf in Resources */,
 				F928D82C272A7E020013DC31 /* LaunchScreen.storyboard in Resources */,
+				F928D87F272A811C0013DC31 /* Lato-Bold.ttf in Resources */,
+				F928D881272A811C0013DC31 /* Lato-Regular.ttf in Resources */,
 				F928D829272A7E020013DC31 /* Assets.xcassets in Resources */,
+				F928D888272A95F50013DC31 /* OnBoardViewController.storyboard in Resources */,
+				F928D83B272A80060013DC31 /* CustomPage.xib in Resources */,
 				F928D827272A7DFF0013DC31 /* Main.storyboard in Resources */,
+				F928D838272A80060013DC31 /* CustomOverlay.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B933B31F90E09EACC0D1B141 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyManagerDemo/Pods-MoneyManagerDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyManagerDemo/Pods-MoneyManagerDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyManagerDemo/Pods-MoneyManagerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C02BD652081D9DB9EA9ADF12 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoneyManagerDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F928D818272A7DFF0013DC31 /* Sources */ = {
@@ -141,6 +274,9 @@
 				F928D824272A7DFF0013DC31 /* ViewController.swift in Sources */,
 				F928D820272A7DFF0013DC31 /* AppDelegate.swift in Sources */,
 				F928D822272A7DFF0013DC31 /* SceneDelegate.swift in Sources */,
+				F928D839272A80060013DC31 /* CustomOverlay.swift in Sources */,
+				F928D83C272A80060013DC31 /* CustomPage.swift in Sources */,
+				F928D886272A90310013DC31 /* OnBoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +420,7 @@
 		};
 		F928D831272A7E020013DC31 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB9740283C8AEEE38D8E3CE8 /* Pods-MoneyManagerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -311,6 +448,7 @@
 		};
 		F928D832272A7E020013DC31 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B370E2C218DE3FC2F44D832C /* Pods-MoneyManagerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
