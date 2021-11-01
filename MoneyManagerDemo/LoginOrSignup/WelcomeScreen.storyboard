@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Welcome Screen View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeScreen" id="Y6W-OH-hqX" customClass="WelcomeScreenViewController" customModule="MoneyManagerDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page0" translatesAutoresizingMaskIntoConstraints="NO" id="RKm-8H-0BP">
+                                <rect key="frame" x="0.0" y="74" width="414" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="QSG-bN-vqT"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Money Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q72-AB-MLx">
+                                <rect key="frame" x="30" y="394" width="220" height="36"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Better Way To Track Your Expenses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ap6-2x-bzM">
+                                <rect key="frame" x="30" y="445" width="309.5" height="23"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="0.87320075366432215" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zH1-VV-Mfj" userLabel="Login">
+                                <rect key="frame" x="30" y="692" width="354" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lVZ-DX-SeN"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Log In">
+                                            <attributes>
+                                                <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" red="0.50136405230000003" green="0.59062987570000003" blue="0.84316623209999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapLoginButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Cae-ym-aoc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsv-YJ-uii" userLabel="SignUp">
+                                <rect key="frame" x="30" y="762" width="354" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gG0-Wi-NV7"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Sign Up">
+                                            <attributes>
+                                                <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" red="0.46641188859999999" green="0.57086879010000002" blue="0.82748025660000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapSignUpButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Awn-E8-eSK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" red="0.50136405230000003" green="0.59062987570000003" blue="0.84316623209999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="zH1-VV-Mfj" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="7Mc-07-XYu"/>
+                            <constraint firstItem="q72-AB-MLx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="ETg-wJ-5sf"/>
+                            <constraint firstItem="RKm-8H-0BP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="RXC-hO-KUz"/>
+                            <constraint firstItem="Jsv-YJ-uii" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="RXQ-JY-2xa"/>
+                            <constraint firstItem="zH1-VV-Mfj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="RXl-I9-RfM"/>
+                            <constraint firstItem="Ap6-2x-bzM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="WQV-e5-4jj"/>
+                            <constraint firstItem="Jsv-YJ-uii" firstAttribute="top" secondItem="zH1-VV-Mfj" secondAttribute="bottom" constant="20" id="XEA-Jg-Qdf"/>
+                            <constraint firstItem="Jsv-YJ-uii" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="YwM-vs-ws4"/>
+                            <constraint firstItem="q72-AB-MLx" firstAttribute="top" secondItem="RKm-8H-0BP" secondAttribute="bottom" constant="20" id="as1-o8-qdn"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Jsv-YJ-uii" secondAttribute="bottom" constant="50" id="b9w-dT-OEC"/>
+                            <constraint firstItem="RKm-8H-0BP" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="oFu-t5-mwB"/>
+                            <constraint firstItem="Ap6-2x-bzM" firstAttribute="top" secondItem="q72-AB-MLx" secondAttribute="bottom" constant="15" id="oTz-0f-Pdg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RKm-8H-0BP" secondAttribute="trailing" id="tvV-1a-Bph"/>
+                            <constraint firstItem="RKm-8H-0BP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="ysg-7q-15d"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="BgView" destination="5EZ-qb-Rvc" id="W5F-Za-aaX"/>
+                        <outlet property="LoginButton" destination="zH1-VV-Mfj" id="XMo-QQ-CsF"/>
+                        <outlet property="SignUpButton" destination="Jsv-YJ-uii" id="pJZ-VF-frt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-17.39130434782609" y="67.633928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="page0" width="128.5" height="126"/>
+    </resources>
+</document>

@@ -23,6 +23,16 @@
 		F928D881272A811C0013DC31 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F928D87E272A811C0013DC31 /* Lato-Regular.ttf */; };
 		F928D886272A90310013DC31 /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928D885272A90310013DC31 /* OnBoardViewController.swift */; };
 		F928D888272A95F50013DC31 /* OnBoardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F928D887272A95F50013DC31 /* OnBoardViewController.storyboard */; };
+		F9D83A6E272BB50600B581EB /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9D83A6D272BB50600B581EB /* LoginScreen.storyboard */; };
+		F9D83A70272BB51600B581EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D83A6F272BB51600B581EB /* LoginViewController.swift */; };
+		F9D83A77272BE1CA00B581EB /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D83A76272BE1CA00B581EB /* DesignableTextField.swift */; };
+		F9D83A7A272C17F200B581EB /* SignupScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9D83A79272C17F200B581EB /* SignupScreen.storyboard */; };
+		F9D83A7E272C185900B581EB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D83A7D272C185900B581EB /* SignUpViewController.swift */; };
+		F9FF4726272F9BC4006E0CB5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FF4725272F9BC4006E0CB5 /* LoginViewModel.swift */; };
+		F9FF4728272FAB8A006E0CB5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FF4727272FAB8A006E0CB5 /* SignUpViewModel.swift */; };
+		F9FF472A272FABF4006E0CB5 /* TextFieldSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FF4729272FABF4006E0CB5 /* TextFieldSetup.swift */; };
+		F9FF472D272FC128006E0CB5 /* WelcomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FF472C272FC128006E0CB5 /* WelcomeScreen.storyboard */; };
+		F9FF472F272FC137006E0CB5 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FF472E272FC137006E0CB5 /* WelcomeScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +56,16 @@
 		F928D87E272A811C0013DC31 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../SwiftyOnboard/Example/SwiftyOnboardExample/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		F928D885272A90310013DC31 /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
 		F928D887272A95F50013DC31 /* OnBoardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoardViewController.storyboard; sourceTree = "<group>"; };
+		F9D83A6D272BB50600B581EB /* LoginScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginScreen.storyboard; sourceTree = "<group>"; };
+		F9D83A6F272BB51600B581EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F9D83A76272BE1CA00B581EB /* DesignableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
+		F9D83A79272C17F200B581EB /* SignupScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignupScreen.storyboard; sourceTree = "<group>"; };
+		F9D83A7D272C185900B581EB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		F9FF4725272F9BC4006E0CB5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F9FF4727272FAB8A006E0CB5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		F9FF4729272FABF4006E0CB5 /* TextFieldSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSetup.swift; sourceTree = "<group>"; };
+		F9FF472C272FC128006E0CB5 /* WelcomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeScreen.storyboard; sourceTree = "<group>"; };
+		F9FF472E272FC137006E0CB5 /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +118,11 @@
 		F928D81E272A7DFF0013DC31 /* MoneyManagerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F9FF472B272FC114006E0CB5 /* LoginOrSignup */,
+				F9D83A78272C17D500B581EB /* SignupScreen */,
+				F9D83A75272BE1B600B581EB /* utilities */,
+				F9D83A6C272BB4DF00B581EB /* LoginScreen */,
+				F9D83A68272BAA3000B581EB /* Onboarding */,
 				F928D884272A8F6E0013DC31 /* View Controller */,
 				F928D883272A8F5F0013DC31 /* View */,
 				F928D87B272A810E0013DC31 /* Fonts */,
@@ -124,9 +149,6 @@
 			children = (
 				F928D825272A7DFF0013DC31 /* Main.storyboard */,
 				F928D82A272A7E020013DC31 /* LaunchScreen.storyboard */,
-				F928D833272A80050013DC31 /* CustomOverlay.xib */,
-				F928D836272A80050013DC31 /* CustomPage.xib */,
-				F928D887272A95F50013DC31 /* OnBoardViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				F928D823272A7DFF0013DC31 /* ViewController.swift */,
-				F9D83A68272BAA3000B581EB /* Onboarding */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -143,11 +164,68 @@
 		F9D83A68272BAA3000B581EB /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				F9D83A6B272BB48900B581EB /* View Controllers */,
+				F9D83A69272BB46A00B581EB /* Storyboards */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F9D83A69272BB46A00B581EB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F928D833272A80050013DC31 /* CustomOverlay.xib */,
+				F928D836272A80050013DC31 /* CustomPage.xib */,
+				F928D887272A95F50013DC31 /* OnBoardViewController.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F9D83A6B272BB48900B581EB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				F928D885272A90310013DC31 /* OnBoardViewController.swift */,
 				F928D834272A80050013DC31 /* CustomOverlay.swift */,
 				F928D837272A80060013DC31 /* CustomPage.swift */,
 			);
-			path = Onboarding;
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F9D83A6C272BB4DF00B581EB /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F9D83A6D272BB50600B581EB /* LoginScreen.storyboard */,
+				F9D83A6F272BB51600B581EB /* LoginViewController.swift */,
+				F9FF4725272F9BC4006E0CB5 /* LoginViewModel.swift */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		F9D83A75272BE1B600B581EB /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F9D83A76272BE1CA00B581EB /* DesignableTextField.swift */,
+				F9FF4729272FABF4006E0CB5 /* TextFieldSetup.swift */,
+			);
+			path = utilities;
+			sourceTree = "<group>";
+		};
+		F9D83A78272C17D500B581EB /* SignupScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F9D83A79272C17F200B581EB /* SignupScreen.storyboard */,
+				F9D83A7D272C185900B581EB /* SignUpViewController.swift */,
+				F9FF4727272FAB8A006E0CB5 /* SignUpViewModel.swift */,
+			);
+			path = SignupScreen;
+			sourceTree = "<group>";
+		};
+		F9FF472B272FC114006E0CB5 /* LoginOrSignup */ = {
+			isa = PBXGroup;
+			children = (
+				F9FF472C272FC128006E0CB5 /* WelcomeScreen.storyboard */,
+				F9FF472E272FC137006E0CB5 /* WelcomeScreenViewController.swift */,
+			);
+			path = LoginOrSignup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,11 +291,14 @@
 				F928D880272A811C0013DC31 /* Lato-Heavy.ttf in Resources */,
 				F928D82C272A7E020013DC31 /* LaunchScreen.storyboard in Resources */,
 				F928D87F272A811C0013DC31 /* Lato-Bold.ttf in Resources */,
+				F9D83A7A272C17F200B581EB /* SignupScreen.storyboard in Resources */,
 				F928D881272A811C0013DC31 /* Lato-Regular.ttf in Resources */,
 				F928D829272A7E020013DC31 /* Assets.xcassets in Resources */,
 				F928D888272A95F50013DC31 /* OnBoardViewController.storyboard in Resources */,
+				F9FF472D272FC128006E0CB5 /* WelcomeScreen.storyboard in Resources */,
 				F928D83B272A80060013DC31 /* CustomPage.xib in Resources */,
 				F928D827272A7DFF0013DC31 /* Main.storyboard in Resources */,
+				F9D83A6E272BB50600B581EB /* LoginScreen.storyboard in Resources */,
 				F928D838272A80060013DC31 /* CustomOverlay.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,11 +352,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9D83A70272BB51600B581EB /* LoginViewController.swift in Sources */,
 				F928D824272A7DFF0013DC31 /* ViewController.swift in Sources */,
 				F928D820272A7DFF0013DC31 /* AppDelegate.swift in Sources */,
+				F9D83A77272BE1CA00B581EB /* DesignableTextField.swift in Sources */,
 				F928D822272A7DFF0013DC31 /* SceneDelegate.swift in Sources */,
+				F9FF472F272FC137006E0CB5 /* WelcomeScreenViewController.swift in Sources */,
 				F928D839272A80060013DC31 /* CustomOverlay.swift in Sources */,
+				F9D83A7E272C185900B581EB /* SignUpViewController.swift in Sources */,
 				F928D83C272A80060013DC31 /* CustomPage.swift in Sources */,
+				F9FF4726272F9BC4006E0CB5 /* LoginViewModel.swift in Sources */,
+				F9FF472A272FABF4006E0CB5 /* TextFieldSetup.swift in Sources */,
+				F9FF4728272FAB8A006E0CB5 /* SignUpViewModel.swift in Sources */,
 				F928D886272A90310013DC31 /* OnBoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
