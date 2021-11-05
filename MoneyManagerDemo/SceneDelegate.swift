@@ -6,20 +6,55 @@
 //
 
 import UIKit
+import GoogleSignIn
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var navigationController: UINavigationController?
 
-
+    static var shared: SceneDelegate!
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-//        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        self.window = UIWindow(windowScene: windowScene)
+        SceneDelegate.shared=self
 //        let mainStoryBoard = UIStoryboard(name: "WelcomeScreen", bundle: nil)
 //        let viewController = mainStoryBoard.instantiateViewController(withIdentifier: "WelcomeScreen")
 //        window?.rootViewController = viewController
+        if( !UserDefaults.standard.bool(forKey: "isOnBoardingShown")){
+            //if onboarding screen not shown
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = mainStoryBoard.instantiateViewController(withIdentifier: "Main")
+            window?.rootViewController = viewController
+        }
+        else{
+            //if onboarding screen is shown
+            GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+                if error != nil || user == nil {
+                    print("Signed Out")
+                    if let viewController = UIStoryboard(name: "WelcomeScreen", bundle: nil).instantiateViewController(withIdentifier: "WelcomeScreen") as? WelcomeScreenViewController {
+                        let navController = UINavigationController(rootViewController: viewController)
+                        self.window?.rootViewController = navController
+                    }
+                } else {
+                    // Show the app's signed-in state.
+                    print("Signed In")
+                    if let viewController = UIStoryboard(name: "MoneyManagerDashboard", bundle: nil).instantiateViewController(withIdentifier: "DashBoard") as? DashBoardViewController {
+                        let navController = UINavigationController(rootViewController: viewController)
+                        self.window?.rootViewController = navController
+                    }
+
+                    }
+                }
+            
+        }
+        
+        
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

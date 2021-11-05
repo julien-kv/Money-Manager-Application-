@@ -2,8 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.749962209954-tj1vgne8lu2335lp8nmjes8ltkluf1nd</string>
+			</array>
+		</dict>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
+		<key>Fonts provided by application</key>
+		<array>
+			<string>Lato-Bold.ttf</string>
+			<string>Lato-Regular.ttf</string>
+			<string>Lato-Heavy.ttf</string>
+		</array>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 		<key>UISceneConfigurations</key>
@@ -20,12 +37,10 @@
 				</dict>
 			</array>
 		</dict>
-		<key>Fonts provided by application</key>
-		<array>
-			<string>Lato-Bold.ttf</string>
-			<string>Lato-Regular.ttf</string>
-			<string>Lato-Heavy.ttf</string>
-		</array>
 	</dict>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

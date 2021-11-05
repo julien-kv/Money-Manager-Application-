@@ -10,6 +10,7 @@ import UIKit
 class WelcomeScreenViewController: UIViewController {
     @IBOutlet var BgView: UIView!
     
+    @IBOutlet var TitleLabel: UILabel!
     @IBOutlet var LoginButton: UIButton!
     @IBOutlet var SignUpButton: UIButton!
     
@@ -19,20 +20,21 @@ class WelcomeScreenViewController: UIViewController {
         super.viewDidLoad()
         txtset.gradient(view: view, BgView: BgView)
         setButtonCornerRadius()
+    
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     @IBAction func didTapLoginButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "LoginScreen", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "loginScreen")
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "loginScreen") as? LoginViewController else { return  }
+        navigationController?.pushViewController(vc, animated: true)
     }
-    
     @IBAction func didTapSignUpButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "SignupScreen", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SignupScreen")
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func setButtonCornerRadius(){

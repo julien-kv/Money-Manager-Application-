@@ -116,6 +116,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvc-KL-Fua">
                                                 <rect key="frame" x="95" y="0.0" width="45" height="50"/>
                                                 <state key="normal" image="ggl"/>
+                                                <connections>
+                                                    <action selector="didTapGoogleSignIn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Her-PK-gVe"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -192,14 +195,6 @@
             <point key="canvasLocation" x="115.94202898550725" y="86.383928571428569"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="IBU-U5-HU2">
-            <size key="intrinsicContentSize" width="5" height="21"/>
-        </designable>
-        <designable name="VC7-QT-dOy">
-            <size key="intrinsicContentSize" width="5" height="21"/>
-        </designable>
-    </designables>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="fb" width="256" height="256"/>

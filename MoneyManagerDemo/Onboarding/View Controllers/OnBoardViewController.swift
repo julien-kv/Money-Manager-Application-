@@ -9,6 +9,7 @@ import UIKit
 import SwiftyOnboard
 
 class OnBoardViewController: UIViewController{
+    let userDefaults = UserDefaults.standard
     var swiftyOnboard: SwiftyOnboard!
     let colors:[UIColor] = [#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),#colorLiteral(red: 0.2666860223, green: 0.5116362572, blue: 1, alpha: 1),#colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)]
     var titleArray: [String] = ["Welcome to Money Manager!", "It’s completely Secure!", "Control your financial decisions"]
@@ -50,7 +51,18 @@ class OnBoardViewController: UIViewController{
     
     @objc func handleContinue(sender: UIButton) {
         let index = sender.tag
-        swiftyOnboard?.goToPage(index: index + 1, animated: true)
+        if(index==2){
+            userDefaults.set(true, forKey: "isOnBoardingShown")
+            let mainStoryBoard = UIStoryboard(name: "WelcomeScreen", bundle: nil)
+            let rootViewController = mainStoryBoard.instantiateViewController(withIdentifier: "WelcomeScreen")
+            SceneDelegate.shared.window?.rootViewController = rootViewController
+            
+            
+        }
+        else{
+            swiftyOnboard?.goToPage(index: index + 1, animated: true)
+        }
+        
     }
 }
 

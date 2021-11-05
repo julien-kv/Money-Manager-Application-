@@ -107,6 +107,7 @@
                         <outlet property="BgView" destination="5EZ-qb-Rvc" id="W5F-Za-aaX"/>
                         <outlet property="LoginButton" destination="zH1-VV-Mfj" id="XMo-QQ-CsF"/>
                         <outlet property="SignUpButton" destination="Jsv-YJ-uii" id="pJZ-VF-frt"/>
+                        <outlet property="TitleLabel" destination="q72-AB-MLx" id="bna-N2-DDi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

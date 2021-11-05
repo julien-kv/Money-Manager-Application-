@@ -33,6 +33,9 @@
 		F9FF472A272FABF4006E0CB5 /* TextFieldSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FF4729272FABF4006E0CB5 /* TextFieldSetup.swift */; };
 		F9FF472D272FC128006E0CB5 /* WelcomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FF472C272FC128006E0CB5 /* WelcomeScreen.storyboard */; };
 		F9FF472F272FC137006E0CB5 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FF472E272FC137006E0CB5 /* WelcomeScreenViewController.swift */; };
+		F9FF4731272FF830006E0CB5 /* MoneyManagerDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FF4730272FF830006E0CB5 /* MoneyManagerDashboard.storyboard */; };
+		F9FF4734272FF86E006E0CB5 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FF4733272FF86E006E0CB5 /* DashBoardViewController.swift */; };
+		F9FF473627300786006E0CB5 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9FF473527300786006E0CB5 /* credentials.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		F9FF4729272FABF4006E0CB5 /* TextFieldSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSetup.swift; sourceTree = "<group>"; };
 		F9FF472C272FC128006E0CB5 /* WelcomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeScreen.storyboard; sourceTree = "<group>"; };
 		F9FF472E272FC137006E0CB5 /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
+		F9FF4730272FF830006E0CB5 /* MoneyManagerDashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoneyManagerDashboard.storyboard; sourceTree = "<group>"; };
+		F9FF4733272FF86E006E0CB5 /* DashBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
+		F9FF473527300786006E0CB5 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,7 @@
 		F928D81E272A7DFF0013DC31 /* MoneyManagerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F9FF4732272FF839006E0CB5 /* MoneyManagerDahBoard */,
 				F9FF472B272FC114006E0CB5 /* LoginOrSignup */,
 				F9D83A78272C17D500B581EB /* SignupScreen */,
 				F9D83A75272BE1B600B581EB /* utilities */,
@@ -130,6 +137,7 @@
 				F928D821272A7DFF0013DC31 /* SceneDelegate.swift */,
 				F928D828272A7E020013DC31 /* Assets.xcassets */,
 				F928D82D272A7E020013DC31 /* Info.plist */,
+				F9FF473527300786006E0CB5 /* credentials.plist */,
 			);
 			path = MoneyManagerDemo;
 			sourceTree = "<group>";
@@ -228,6 +236,15 @@
 			path = LoginOrSignup;
 			sourceTree = "<group>";
 		};
+		F9FF4732272FF839006E0CB5 /* MoneyManagerDahBoard */ = {
+			isa = PBXGroup;
+			children = (
+				F9FF4730272FF830006E0CB5 /* MoneyManagerDashboard.storyboard */,
+				F9FF4733272FF86E006E0CB5 /* DashBoardViewController.swift */,
+			);
+			path = MoneyManagerDahBoard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -293,12 +310,14 @@
 				F928D87F272A811C0013DC31 /* Lato-Bold.ttf in Resources */,
 				F9D83A7A272C17F200B581EB /* SignupScreen.storyboard in Resources */,
 				F928D881272A811C0013DC31 /* Lato-Regular.ttf in Resources */,
+				F9FF473627300786006E0CB5 /* credentials.plist in Resources */,
 				F928D829272A7E020013DC31 /* Assets.xcassets in Resources */,
 				F928D888272A95F50013DC31 /* OnBoardViewController.storyboard in Resources */,
 				F9FF472D272FC128006E0CB5 /* WelcomeScreen.storyboard in Resources */,
 				F928D83B272A80060013DC31 /* CustomPage.xib in Resources */,
 				F928D827272A7DFF0013DC31 /* Main.storyboard in Resources */,
 				F9D83A6E272BB50600B581EB /* LoginScreen.storyboard in Resources */,
+				F9FF4731272FF830006E0CB5 /* MoneyManagerDashboard.storyboard in Resources */,
 				F928D838272A80060013DC31 /* CustomOverlay.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +374,7 @@
 				F9D83A70272BB51600B581EB /* LoginViewController.swift in Sources */,
 				F928D824272A7DFF0013DC31 /* ViewController.swift in Sources */,
 				F928D820272A7DFF0013DC31 /* AppDelegate.swift in Sources */,
+				F9FF4734272FF86E006E0CB5 /* DashBoardViewController.swift in Sources */,
 				F9D83A77272BE1CA00B581EB /* DesignableTextField.swift in Sources */,
 				F928D822272A7DFF0013DC31 /* SceneDelegate.swift in Sources */,
 				F9FF472F272FC137006E0CB5 /* WelcomeScreenViewController.swift in Sources */,
@@ -518,7 +538,9 @@
 				INFOPLIST_FILE = MoneyManagerDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -546,7 +568,9 @@
 				INFOPLIST_FILE = MoneyManagerDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

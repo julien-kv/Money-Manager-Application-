@@ -14,13 +14,15 @@ class CustomOverlay: SwiftyOnboardOverlay {
     @IBOutlet weak var skip: UIButton!
     @IBOutlet weak var buttonContinue: UIButton!
     @IBOutlet weak var contentControl: UIPageControl!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         buttonContinue.layer.borderColor = UIColor.white.cgColor
         buttonContinue.layer.borderWidth = 1
         buttonContinue.layer.cornerRadius = buttonContinue.bounds.height / 2
+    }
+    
+    @IBAction func didTapContinueButton(_ sender: Any) {
     }
     
     class func instanceFromNib() -> UIView {
