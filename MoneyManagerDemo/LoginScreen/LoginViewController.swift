@@ -7,6 +7,9 @@
 
 import UIKit
 import GoogleSignIn
+import FBSDKLoginKit
+import NVActivityIndicatorView
+import CoreData
 
 class LoginViewController: UIViewController {
     
@@ -15,8 +18,11 @@ class LoginViewController: UIViewController {
     @IBOutlet var BgView: UIView!
     @IBOutlet var SIgnInButton: UIButton!
     var textFieldSet = TextFieldSetup()
+    lazy var activityViewIndicator = LoadingIndicator.addIndicator(view: self.view,type: .ballClipRotateMultiple)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -28,7 +34,6 @@ class LoginViewController: UIViewController {
         setupBg()
     }
     @IBAction func didTapBackButton(_ sender: Any) {
-        //navigationController?.popViewController(animated: true)
         navigationController?.popToRootViewController(animated: true)
     }
     
@@ -48,14 +53,63 @@ class LoginViewController: UIViewController {
         }
     }
     
+    
     @IBAction func didTapGoogleSignIn(_ sender: Any) {
-        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-            guard error == nil else { return }
-            let storyboard = UIStoryboard(name: "MoneyManagerDashboard", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "DashBoard")
-            self.navigationController?.pushViewController(vc, animated: true)
-          }
+        activityViewIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.activityViewIndicator.stopAnimating()
+            GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+                guard error == nil else { return }
+                self.navigateToDashBoard()
+              }
+                }
     }
+    func navigateToDashBoard(){
+        let storyboard = UIStoryboard(name: "MoneyManagerDashboard", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "tabbarcontroller")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc)
+       
+        
+    }
+    @IBAction func didTapSignInButton(_ sender: Any) {
+        guard let appDelegate =
+          UIApplication.shared.delegate as? AppDelegate else {
+          return
+        }
+        
+        let managedContext =
+          appDelegate.persistentContainer.viewContext
+        
+        
+        
+    }
+    
+    
+    @IBAction func didTapFBSignIn(_ sender: Any) {
+        activityViewIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.activityViewIndicator.stopAnimating()
+            let loginManager = LoginManager()
+            loginManager.logIn(permissions: ["public_profile", "email"], from: self) { [weak self] (result, error) in
+                // Check for error
+                guard error == nil else {
+                    // Error occurred
+                    print(error!.localizedDescription)
+                    return
+                }
+                // Check for cancel
+                guard let result = result, !result.isCancelled else {
+                    print("User cancelled login")
+                    return
+                }
+                // Successfully logged in
+                self?.navigateToDashBoard()
+                }
+       
+        }
+    }
+
+    
     func setupBg(){
         textFieldSet.setuptextFieldForUserNameAndPassword(txtField: UserNametextField,placeHolder: "User Name")
         textFieldSet.setuptextFieldForUserNameAndPassword(txtField: PasswordTextField,placeHolder: "Password")

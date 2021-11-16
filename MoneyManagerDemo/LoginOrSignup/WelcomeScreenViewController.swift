@@ -15,6 +15,8 @@ class WelcomeScreenViewController: UIViewController {
     @IBOutlet var SignUpButton: UIButton!
     
     var txtset = TextFieldSetup()
+    lazy var activityViewIndicator = LoadingIndicator.addIndicator(view: self.view,type: .ballGridPulse)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +29,22 @@ class WelcomeScreenViewController: UIViewController {
     }
     
     @IBAction func didTapLoginButton(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "LoginScreen", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "loginScreen") as? LoginViewController else { return  }
-        navigationController?.pushViewController(vc, animated: true)
+        activityViewIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.activityViewIndicator.stopAnimating()
+            let storyboard = UIStoryboard(name: "LoginScreen", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "loginScreen")
+            self.navigationController?.pushViewController(vc, animated: true)
+                }
     }
     @IBAction func didTapSignUpButton(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "SignupScreen", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SignupScreen")
-        navigationController?.pushViewController(vc, animated: true)
+        activityViewIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.activityViewIndicator.stopAnimating()
+            let storyboard = UIStoryboard(name: "SignupScreen", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "SignupScreen")
+            self.navigationController?.pushViewController(vc, animated: true)
+                }
     }
     
     func setButtonCornerRadius(){

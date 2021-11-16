@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleSignIn
+import FBSDKCoreKit
 
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -36,24 +37,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
                 if error != nil || user == nil {
                     print("Signed Out")
-                    if let viewController = UIStoryboard(name: "WelcomeScreen", bundle: nil).instantiateViewController(withIdentifier: "WelcomeScreen") as? WelcomeScreenViewController {
-                        let navController = UINavigationController(rootViewController: viewController)
-                        self.window?.rootViewController = navController
-                    }
+                    let mainStoryBoard = UIStoryboard(name: "WelcomeScreen", bundle: nil)
+                    let viewController = mainStoryBoard.instantiateViewController(withIdentifier: "welcomeNav")
+                    self.window?.rootViewController=viewController
                 } else {
                     // Show the app's signed-in state.
                     print("Signed In")
-                    if let viewController = UIStoryboard(name: "MoneyManagerDashboard", bundle: nil).instantiateViewController(withIdentifier: "DashBoard") as? DashBoardViewController {
-                        let navController = UINavigationController(rootViewController: viewController)
-                        self.window?.rootViewController = navController
-                    }
-
+                    let mainStoryBoard = UIStoryboard(name: "MoneyManagerDashboard", bundle: nil)
+                    let viewController = mainStoryBoard.instantiateViewController(withIdentifier: "tabbarcontroller")
+                    self.window?.rootViewController=viewController
                     }
                 }
-            
         }
-        
-        
+    }
+    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
+        guard let window = self.window else {
+            return
+        }
+
+        window.rootViewController = vc
+
+        // add animation
+        UIView.transition(with: window,
+                          duration: 0.5,
+                          options: [.transitionFlipFromLeft],
+                          animations: nil,
+                          completion: nil)
 
     }
 
@@ -83,6 +92,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            open: url,
+            sourceApplication: nil,
+            annotation: [UIApplication.OpenURLOptionsKey.annotation]
+        )
     }
 
 

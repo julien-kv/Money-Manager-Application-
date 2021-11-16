@@ -54,8 +54,8 @@ class OnBoardViewController: UIViewController{
         if(index==2){
             userDefaults.set(true, forKey: "isOnBoardingShown")
             let mainStoryBoard = UIStoryboard(name: "WelcomeScreen", bundle: nil)
-            let rootViewController = mainStoryBoard.instantiateViewController(withIdentifier: "WelcomeScreen")
-            SceneDelegate.shared.window?.rootViewController = rootViewController
+            let rootViewController = mainStoryBoard.instantiateViewController(withIdentifier: "welcomeNav")
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootViewController)
             
             
         }

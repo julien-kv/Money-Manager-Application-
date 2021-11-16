@@ -99,6 +99,9 @@
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" red="0.50136405230000003" green="0.59062987570000003" blue="0.84316623209999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapSignInButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Fci-z1-mvy"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or Sign In With" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJ5-WF-vWX">
                                         <rect key="frame" x="156.5" y="70" width="101.5" height="17.5"/>
@@ -109,9 +112,12 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="ITl-2x-n6T">
                                         <rect key="frame" x="137" y="107.5" width="140" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxy-cc-La6">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxy-cc-La6" customClass="FB">
                                                 <rect key="frame" x="0.0" y="0.0" width="45" height="50"/>
                                                 <state key="normal" image="fb"/>
+                                                <connections>
+                                                    <action selector="didTapFBSignIn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="OUH-Cv-Rrn"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvc-KL-Fua">
                                                 <rect key="frame" x="95" y="0.0" width="45" height="50"/>
@@ -186,7 +192,7 @@
                     <connections>
                         <outlet property="BgView" destination="Wkn-yV-2PS" id="28C-Zi-xti"/>
                         <outlet property="PasswordTextField" destination="VC7-QT-dOy" id="X7O-as-gSU"/>
-                        <outlet property="SIgnInButton" destination="brx-gX-79O" id="cL9-kP-EKS"/>
+                        <outlet property="SIgnInButton" destination="brx-gX-79O" id="FU8-i6-pl9"/>
                         <outlet property="UserNametextField" destination="IBU-U5-HU2" id="xQk-G3-69H"/>
                     </connections>
                 </viewController>

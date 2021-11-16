@@ -24,19 +24,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page0" translatesAutoresizingMaskIntoConstraints="NO" id="RKm-8H-0BP">
-                                <rect key="frame" x="0.0" y="74" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="118" width="414" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="QSG-bN-vqT"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Money Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q72-AB-MLx">
-                                <rect key="frame" x="30" y="394" width="220" height="36"/>
+                                <rect key="frame" x="30" y="438" width="220" height="36"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Better Way To Track Your Expenses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ap6-2x-bzM">
-                                <rect key="frame" x="30" y="445" width="309.5" height="23"/>
+                                <rect key="frame" x="30" y="489" width="309.5" height="23"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="0.87320075366432215" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -103,6 +103,7 @@
                             <constraint firstItem="RKm-8H-0BP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="ysg-7q-15d"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="col-ji-9ME"/>
                     <connections>
                         <outlet property="BgView" destination="5EZ-qb-Rvc" id="W5F-Za-aaX"/>
                         <outlet property="LoginButton" destination="zH1-VV-Mfj" id="XMo-QQ-CsF"/>
@@ -111,6 +112,24 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="892.75362318840587" y="67.633928571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tva-Uc-YUK">
+            <objects>
+                <navigationController storyboardIdentifier="welcomeNav" automaticallyAdjustsScrollViewInsets="NO" id="IIv-8c-tOI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lPc-zh-FEK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="WSm-kR-F8c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XdO-TI-kpf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-17.39130434782609" y="67.633928571428569"/>
         </scene>

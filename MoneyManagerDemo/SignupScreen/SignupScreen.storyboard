@@ -242,6 +242,7 @@
                             <constraint firstItem="arU-xy-taC" firstAttribute="centerX" secondItem="fuB-8T-dm8" secondAttribute="centerX" id="mMG-Wr-SP0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="dmr-dV-qju"/>
                     <connections>
                         <outlet property="BgView" destination="fuB-8T-dm8" id="fcF-bA-pG9"/>
                         <outlet property="EmailTextField" destination="XUb-V2-5ta" id="0LD-v0-bVA"/>
@@ -253,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26.086956521739133" y="82.366071428571431"/>
+            <point key="canvasLocation" x="884.05797101449286" y="82.366071428571431"/>
         </scene>
     </scenes>
     <resources>

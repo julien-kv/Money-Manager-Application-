@@ -23,6 +23,11 @@
 		F928D881272A811C0013DC31 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F928D87E272A811C0013DC31 /* Lato-Regular.ttf */; };
 		F928D886272A90310013DC31 /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928D885272A90310013DC31 /* OnBoardViewController.swift */; };
 		F928D888272A95F50013DC31 /* OnBoardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F928D887272A95F50013DC31 /* OnBoardViewController.storyboard */; };
+		F9C2C639274353270014B80A /* ExpenseSheetModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9C2C637274353270014B80A /* ExpenseSheetModel.xcdatamodeld */; };
+		F9C5CFEB274355C900EC3953 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CFE9274355C900EC3953 /* User+CoreDataClass.swift */; };
+		F9C5CFEC274355C900EC3953 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CFEA274355C900EC3953 /* User+CoreDataProperties.swift */; };
+		F9CE95F2273A319C0087223E /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE95F1273A319C0087223E /* LoadingIndicator.swift */; };
+		F9CE96172741FB410087223E /* ExpensePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE96162741FB410087223E /* ExpensePageViewController.swift */; };
 		F9D83A6E272BB50600B581EB /* LoginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9D83A6D272BB50600B581EB /* LoginScreen.storyboard */; };
 		F9D83A70272BB51600B581EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D83A6F272BB51600B581EB /* LoginViewController.swift */; };
 		F9D83A77272BE1CA00B581EB /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D83A76272BE1CA00B581EB /* DesignableTextField.swift */; };
@@ -59,6 +64,11 @@
 		F928D87E272A811C0013DC31 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../SwiftyOnboard/Example/SwiftyOnboardExample/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		F928D885272A90310013DC31 /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
 		F928D887272A95F50013DC31 /* OnBoardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoardViewController.storyboard; sourceTree = "<group>"; };
+		F9C2C638274353270014B80A /* ExpenseSheetModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpenseSheetModel.xcdatamodel; sourceTree = "<group>"; };
+		F9C5CFE9274355C900EC3953 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F9C5CFEA274355C900EC3953 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F9CE95F1273A319C0087223E /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		F9CE96162741FB410087223E /* ExpensePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePageViewController.swift; sourceTree = "<group>"; };
 		F9D83A6D272BB50600B581EB /* LoginScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginScreen.storyboard; sourceTree = "<group>"; };
 		F9D83A6F272BB51600B581EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F9D83A76272BE1CA00B581EB /* DesignableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
@@ -124,6 +134,8 @@
 		F928D81E272A7DFF0013DC31 /* MoneyManagerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F9C5CFE9274355C900EC3953 /* User+CoreDataClass.swift */,
+				F9C5CFEA274355C900EC3953 /* User+CoreDataProperties.swift */,
 				F9FF4732272FF839006E0CB5 /* MoneyManagerDahBoard */,
 				F9FF472B272FC114006E0CB5 /* LoginOrSignup */,
 				F9D83A78272C17D500B581EB /* SignupScreen */,
@@ -134,10 +146,11 @@
 				F928D883272A8F5F0013DC31 /* View */,
 				F928D87B272A810E0013DC31 /* Fonts */,
 				F928D81F272A7DFF0013DC31 /* AppDelegate.swift */,
+				F928D82D272A7E020013DC31 /* Info.plist */,
 				F928D821272A7DFF0013DC31 /* SceneDelegate.swift */,
 				F928D828272A7E020013DC31 /* Assets.xcassets */,
-				F928D82D272A7E020013DC31 /* Info.plist */,
 				F9FF473527300786006E0CB5 /* credentials.plist */,
+				F9C2C637274353270014B80A /* ExpenseSheetModel.xcdatamodeld */,
 			);
 			path = MoneyManagerDemo;
 			sourceTree = "<group>";
@@ -213,6 +226,7 @@
 			children = (
 				F9D83A76272BE1CA00B581EB /* DesignableTextField.swift */,
 				F9FF4729272FABF4006E0CB5 /* TextFieldSetup.swift */,
+				F9CE95F1273A319C0087223E /* LoadingIndicator.swift */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -241,6 +255,7 @@
 			children = (
 				F9FF4730272FF830006E0CB5 /* MoneyManagerDashboard.storyboard */,
 				F9FF4733272FF86E006E0CB5 /* DashBoardViewController.swift */,
+				F9CE96162741FB410087223E /* ExpensePageViewController.swift */,
 			);
 			path = MoneyManagerDahBoard;
 			sourceTree = "<group>";
@@ -375,15 +390,20 @@
 				F928D824272A7DFF0013DC31 /* ViewController.swift in Sources */,
 				F928D820272A7DFF0013DC31 /* AppDelegate.swift in Sources */,
 				F9FF4734272FF86E006E0CB5 /* DashBoardViewController.swift in Sources */,
+				F9C2C639274353270014B80A /* ExpenseSheetModel.xcdatamodeld in Sources */,
 				F9D83A77272BE1CA00B581EB /* DesignableTextField.swift in Sources */,
 				F928D822272A7DFF0013DC31 /* SceneDelegate.swift in Sources */,
 				F9FF472F272FC137006E0CB5 /* WelcomeScreenViewController.swift in Sources */,
 				F928D839272A80060013DC31 /* CustomOverlay.swift in Sources */,
 				F9D83A7E272C185900B581EB /* SignUpViewController.swift in Sources */,
+				F9C5CFEC274355C900EC3953 /* User+CoreDataProperties.swift in Sources */,
 				F928D83C272A80060013DC31 /* CustomPage.swift in Sources */,
 				F9FF4726272F9BC4006E0CB5 /* LoginViewModel.swift in Sources */,
 				F9FF472A272FABF4006E0CB5 /* TextFieldSetup.swift in Sources */,
+				F9CE95F2273A319C0087223E /* LoadingIndicator.swift in Sources */,
+				F9C5CFEB274355C900EC3953 /* User+CoreDataClass.swift in Sources */,
 				F9FF4728272FAB8A006E0CB5 /* SignUpViewModel.swift in Sources */,
+				F9CE96172741FB410087223E /* ExpensePageViewController.swift in Sources */,
 				F928D886272A90310013DC31 /* OnBoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,6 +628,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F9C2C637274353270014B80A /* ExpenseSheetModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F9C2C638274353270014B80A /* ExpenseSheetModel.xcdatamodel */,
+			);
+			currentVersion = F9C2C638274353270014B80A /* ExpenseSheetModel.xcdatamodel */;
+			path = ExpenseSheetModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F928D814272A7DFF0013DC31 /* Project object */;
 }
