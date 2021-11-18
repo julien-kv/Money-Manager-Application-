@@ -9,16 +9,16 @@ import UIKit
 import GoogleSignIn
 import FBSDKLoginKit
 import NVActivityIndicatorView
-import CoreData
 
-class LoginViewController: UIViewController {
-    
+class LoginViewController: UIViewController{
     @IBOutlet var UserNametextField: UITextField!
     @IBOutlet var PasswordTextField: UITextField!
     @IBOutlet var BgView: UIView!
     @IBOutlet var SIgnInButton: UIButton!
     var textFieldSet = TextFieldSetup()
     lazy var activityViewIndicator = LoadingIndicator.addIndicator(view: self.view,type: .ballClipRotateMultiple)
+    let defaults = UserDefaults.standard
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,25 +64,28 @@ class LoginViewController: UIViewController {
               }
                 }
     }
-    func navigateToDashBoard(){
+    func navigateToDashBoard(username:String? = nil){
         let storyboard = UIStoryboard(name: "MoneyManagerDashboard", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "tabbarcontroller")
+        let vc = storyboard.instantiateViewController(withIdentifier: "tabbarcontroller") as! DashboardTabbarVC
+        vc.username = UserNametextField.text
+        defaults.set(username, forKey: username!)
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc)
        
         
     }
     @IBAction func didTapSignInButton(_ sender: Any) {
-        guard let appDelegate =
-          UIApplication.shared.delegate as? AppDelegate else {
-          return
+        activityViewIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.activityViewIndicator.stopAnimating()
+            self.navigateToDashBoard(username: self.UserNametextField.text)
         }
-        
-        let managedContext =
-          appDelegate.persistentContainer.viewContext
-        
-        
-        
     }
+    
+    
+
+        
+        
+        
     
     
     @IBAction func didTapFBSignIn(_ sender: Any) {

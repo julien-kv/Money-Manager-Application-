@@ -15,6 +15,7 @@ class DashBoardViewController: UIViewController {
     var window:UIWindow?
     lazy var activityViewIndicator = LoadingIndicator.addIndicator(view: self.view,type: .ballClipRotateMultiple)
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textfieldobj.gradient(view: view, BgView: BgView)

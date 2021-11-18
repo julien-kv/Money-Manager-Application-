@@ -8,38 +8,41 @@
 import UIKit
 import CoreData
 
-class ExpensePageViewController: UIViewController {
+class ExpensePageViewController: UIViewController{
 
     @IBOutlet var ExpenseTableVIew: UITableView!
-    var expensesArray: [NSManagedObject] = []
+    var expensesArray: [User] = []
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let defaults = UserDefaults.standard
+
+    var username:String?
+    var currentUser:User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        username = defaults.string(forKey: "username")
+
         ExpenseTableVIew.dataSource=self
+        fetchPeople()
+        fetchCurrentUser()
     }
-    var expenseArray:[String] = []
-    override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(animated)
-      
-      //1
-      guard let appDelegate =
-        UIApplication.shared.delegate as? AppDelegate else {
-          return
-      }
-      
-      let managedContext =
-        appDelegate.persistentContainer.viewContext
-      
-      //2
-      let fetchRequest =
-        NSFetchRequest<NSManagedObject>(entityName: "User")
-      
-      //3
-      do {
-        expensesArray = try managedContext.fetch(fetchRequest)
-      } catch let error as NSError {
-        print("Could not fetch. \(error), \(error.userInfo)")
-      }
+    func fetchCurrentUser(){
+        if let foo = expensesArray.first(where: {$0.usename == username}) {
+           // do something with foo
+            currentUser=foo
+        } else {
+           // item could not be found
+        }
+    }
+    func fetchPeople(){
+        //fetch data from core data to display in the table view
+        do{
+            try self.expensesArray =  context.fetch(User.fetchRequest())
+        }catch{
+        }
+        DispatchQueue.main.async {
+            self.ExpenseTableVIew.reloadData()
+        }
     }
     
     @IBAction func didTapAddButton(_ sender: Any) {
@@ -55,8 +58,14 @@ class ExpensePageViewController: UIViewController {
              let expenseToSave = textField.text else {
                return
            }
-             self.save(name: expenseToSave)
-           self.ExpenseTableVIew.reloadData()
+             
+             self.currentUser?.expenses?.append(expenseToSave)
+             do{
+                 try self.context.save()
+             }catch{
+                 
+             }
+             self.fetchPeople()
          }
          let cancelAction = UIAlertAction(title: "Cancel",
                                           style: .cancel)
@@ -67,60 +76,16 @@ class ExpensePageViewController: UIViewController {
     }
     
     @IBAction func didTapRemoveAll(_ sender: Any) {
-        guard let appDelegate =
-          UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
-
-        // Delete multiple objects
-        for object in expensesArray {
-            context.delete(object)
-        }
-
-        // Save the deletions to the persistent store
+        self.currentUser?.expenses?.removeAll()
         do{
-            try context.save()
+            try self.context.save()
         }catch{
-            print("error")
+            
         }
-        expensesArray.removeAll()
-        ExpenseTableVIew.reloadData()
-        
-        
+        self.fetchPeople()
+ 
     }
-    func save(name: String) {
-        
-      
-      guard let appDelegate =
-        UIApplication.shared.delegate as? AppDelegate else {
-        return
-      }
-      
-      // 1
-      let managedContext =
-        appDelegate.persistentContainer.viewContext
-      
-      // 2
-      let entity =
-        NSEntityDescription.entity(forEntityName: "User",
-                                   in: managedContext)!
-      
-      let person = NSManagedObject(entity: entity,
-                                   insertInto: managedContext)
-      
-      // 3
-        expenseArray=person.value(forKey: "expenses") as! [String]
-      person.setValue(name, forKeyPath: "expenses")
-      
-      // 4
-      do {
-        try managedContext.save()
-          self.expensesArray.append(person)
-      } catch let error as NSError {
-        print("Could not save. \(error), \(error.userInfo)")
-      }
-    }
+    
 }
 extension ExpensePageViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -128,12 +93,10 @@ extension ExpensePageViewController:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let expense = expensesArray[indexPath.row]
            let cell =
              tableView.dequeueReusableCell(withIdentifier: "cell",
                                            for: indexPath)
-           cell.textLabel?.text =
-             expense.value(forKeyPath: "expenses") as? String
+        cell.textLabel?.text = currentUser?.expenses?[indexPath.row]
            return cell
         
     }

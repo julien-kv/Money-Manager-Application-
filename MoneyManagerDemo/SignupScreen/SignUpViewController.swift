@@ -21,6 +21,8 @@ class SignUpViewController: UIViewController {
     lazy var activityViewIndicator = LoadingIndicator.addIndicator(view: self.view,type: .ballClipRotateMultiple)
     var textfieldSet = TextFieldSetup()
     var userObjectArray:[NSManagedObject] = []
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +88,16 @@ class SignUpViewController: UIViewController {
         }
     }
     @IBAction func didTapSignUp(_ sender: Any) {
-        let person = addUser()
+        let newPerson = User(context: self.context)
+        newPerson.usename = EmailTextField.text
+        defaults.set(EmailTextField.text, forKey: "username")
+        //save the data
+        do{
+            try self.context.save()
+        }catch{
+            
+        }
+        navigateToDashBoard()
         
         
         

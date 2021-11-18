@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gYq-vW-NeQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5re-df-oxo">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -80,7 +80,7 @@
         <!--08/11-->
         <scene sceneID="lQk-Oa-vU3">
             <objects>
-                <viewController id="5re-df-oxo" customClass="ExpensePageViewController" customModule="MoneyManagerDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="expensePage" id="5re-df-oxo" customClass="ExpensePageViewController" customModule="MoneyManagerDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E0H-5P-JfR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -190,10 +190,10 @@
             </objects>
             <point key="canvasLocation" x="1518.840579710145" y="-393.08035714285711"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Dashboard TabbarVC-->
         <scene sceneID="lDb-nn-ntm">
             <objects>
-                <tabBarController storyboardIdentifier="tabbarcontroller" id="0ZE-2c-vIu" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbarcontroller" id="0ZE-2c-vIu" customClass="DashboardTabbarVC" customModule="MoneyManagerDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="afn-Ve-YtT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
