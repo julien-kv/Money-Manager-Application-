@@ -15,13 +15,14 @@ class DashBoardViewController: UIViewController {
     var window:UIWindow?
     lazy var activityViewIndicator = LoadingIndicator.addIndicator(view: self.view,type: .ballClipRotateMultiple)
     let defaults = UserDefaults.standard
-
+    @IBOutlet var usernameLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textfieldobj.gradient(view: view, BgView: BgView)
         navigationController?.setNavigationBarHidden(true, animated: true)
-        
+        usernameLabel.text = defaults.string(forKey: "username")
         // Do any additional setup after loading the view.
     }
     

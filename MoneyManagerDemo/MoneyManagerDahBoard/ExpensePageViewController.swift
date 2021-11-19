@@ -13,6 +13,7 @@ import FBSDKLoginKit
 class ExpensePageViewController: UIViewController{
 
     @IBOutlet var ExpenseTableVIew: UITableView!
+    @IBOutlet var welcomeUsertextLabel: UILabel!
     var expensesArray: [User] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let defaults = UserDefaults.standard
@@ -25,6 +26,7 @@ class ExpensePageViewController: UIViewController{
         super.viewDidLoad()
         username = defaults.string(forKey: "username")
         defaults.set(true, forKey: "loggedIn")
+        welcomeUsertextLabel.text = "Welcome \(username!)"
 
         ExpenseTableVIew.dataSource=self
         fetchPeople()
