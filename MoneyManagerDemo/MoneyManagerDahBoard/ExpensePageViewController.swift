@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreData
+import GoogleSignIn
+import FBSDKLoginKit
 
 class ExpensePageViewController: UIViewController{
 
@@ -14,22 +16,24 @@ class ExpensePageViewController: UIViewController{
     var expensesArray: [User] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let defaults = UserDefaults.standard
+    var previousExpense : [String] = []
 
     var username:String?
-    var currentUser:User?
+    var currentUserIndex:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         username = defaults.string(forKey: "username")
+        defaults.set(true, forKey: "loggedIn")
 
         ExpenseTableVIew.dataSource=self
         fetchPeople()
         fetchCurrentUser()
     }
     func fetchCurrentUser(){
-        if let foo = expensesArray.first(where: {$0.usename == username}) {
+        if let foo = expensesArray.firstIndex(where: {$0.usename == username}) {
            // do something with foo
-            currentUser=foo
+            currentUserIndex=foo
         } else {
            // item could not be found
         }
@@ -58,14 +62,17 @@ class ExpensePageViewController: UIViewController{
              let expenseToSave = textField.text else {
                return
            }
-             
-             self.currentUser?.expenses?.append(expenseToSave)
+             previousExpense =  self.expensesArray[currentUserIndex!].expenses ?? []
+             previousExpense = previousExpense + [expenseToSave]
+             self.expensesArray[currentUserIndex!].expenses = previousExpense
              do{
                  try self.context.save()
+                 
              }catch{
                  
              }
              self.fetchPeople()
+             
          }
          let cancelAction = UIAlertAction(title: "Cancel",
                                           style: .cancel)
@@ -76,27 +83,44 @@ class ExpensePageViewController: UIViewController{
     }
     
     @IBAction func didTapRemoveAll(_ sender: Any) {
-        self.currentUser?.expenses?.removeAll()
+        self.expensesArray[currentUserIndex!].expenses?.removeAll()
         do{
             try self.context.save()
         }catch{
-            
+
         }
         self.fetchPeople()
+        
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+//
+//        // Create Batch Delete Request
+//        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+//
+//        do {
+//            try context.execute(batchDeleteRequest)
+//
+//        } catch {
+//            // Error Handling
+//        }
  
     }
     
 }
 extension ExpensePageViewController:UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expensesArray.count
+//        GIDSignIn.sharedInstance.signOut()
+//        LoginManager().logOut()
+
+        return expensesArray[currentUserIndex!].expenses?.count ?? 0
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            let cell =
              tableView.dequeueReusableCell(withIdentifier: "cell",
                                            for: indexPath)
-        cell.textLabel?.text = currentUser?.expenses?[indexPath.row]
+        cell.textLabel?.text = self.expensesArray[currentUserIndex!].expenses?[indexPath.row]
            return cell
         
     }

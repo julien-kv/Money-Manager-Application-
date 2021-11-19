@@ -14,7 +14,8 @@ class DashBoardViewController: UIViewController {
     var textfieldobj=TextFieldSetup()
     var window:UIWindow?
     lazy var activityViewIndicator = LoadingIndicator.addIndicator(view: self.view,type: .ballClipRotateMultiple)
-    
+    let defaults = UserDefaults.standard
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,7 @@ class DashBoardViewController: UIViewController {
             self.activityViewIndicator.stopAnimating()
             GIDSignIn.sharedInstance.signOut()
             LoginManager().logOut()
+            self.defaults.set(false, forKey: "loggedIn")
             if let viewController = UIStoryboard(name: "WelcomeScreen", bundle: nil).instantiateViewController(withIdentifier: "WelcomeScreen") as? WelcomeScreenViewController {
                 let navController = UINavigationController(rootViewController: viewController)
                 SceneDelegate.shared.window?.rootViewController = navController

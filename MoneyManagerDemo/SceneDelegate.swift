@@ -14,6 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
+    let defaults = UserDefaults.standard
+
 
     static var shared: SceneDelegate!
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -23,9 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
         SceneDelegate.shared=self
-//        let mainStoryBoard = UIStoryboard(name: "WelcomeScreen", bundle: nil)
-//        let viewController = mainStoryBoard.instantiateViewController(withIdentifier: "WelcomeScreen")
-//        window?.rootViewController = viewController
         if( !UserDefaults.standard.bool(forKey: "isOnBoardingShown")){
             //if onboarding screen not shown
             let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -34,8 +33,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         else{
             //if onboarding screen is shown
+            let loggedIn = defaults.bool(forKey: "loggedIn")
+            
             GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-                if error != nil || user == nil {
+                if ((error != nil || user == nil ) || loggedIn == false || !AccessToken.isCurrentAccessTokenActive ){
                     print("Signed Out")
                     let mainStoryBoard = UIStoryboard(name: "WelcomeScreen", bundle: nil)
                     let viewController = mainStoryBoard.instantiateViewController(withIdentifier: "welcomeNav")
@@ -76,6 +77,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

@@ -23,6 +23,8 @@ class SignUpViewController: UIViewController {
     var userObjectArray:[NSManagedObject] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let defaults = UserDefaults.standard
+    var email:String?
+    var tempArray:[User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +33,6 @@ class SignUpViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         textfieldSet.gradient(view: view, BgView: BgView)
         navigationController?.setNavigationBarHidden(true, animated: true)
-        
         textfieldSet.setuptextFieldForUserNameAndPassword(txtField: UserNameTextField, placeHolder: "Full Name")
         textfieldSet.setuptextFieldForUserNameAndPassword(txtField: EmailTextField, placeHolder: "Email")
         textfieldSet.setuptextFieldForUserNameAndPassword(txtField: PwdTextField, placeHolder: "Password")
@@ -41,6 +42,9 @@ class SignUpViewController: UIViewController {
         textfieldSet.setTextFieldImage(imgString: "lock", txtField: PwdTextField)
         textfieldSet.setTextFieldImage(imgString: "lock", txtField: pwdConfirmTextField)
         textfieldSet.setTextFieldImage(imgString: "envelope", txtField: EmailTextField)
+        PwdTextField.isSecureTextEntry = true
+        pwdConfirmTextField.isSecureTextEntry = true
+        
         
         textfieldSet.setButton(btn: SignUpButton)
     }
@@ -49,75 +53,100 @@ class SignUpViewController: UIViewController {
     }
     @IBAction func didTapGoogleLoginButton(_ sender: Any) {
         activityViewIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+            guard error == nil else { return }
             self.activityViewIndicator.stopAnimating()
-            GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-                guard error == nil else { return }
-                self.navigateToDashBoard()
-              }
-                }
+            self.navigateToDashBoard(username: user?.profile?.email)
+        }
+        
     }
-    func navigateToDashBoard(){
+    func CreateNewUser(email:String){
+        do{
+        tempArray = try context.fetch(User.fetchRequest())
+        }catch{
+        }
+        if tempArray .firstIndex(where: {$0.usename == email}) != nil {
+           // do something with foo
+            return
+        } else {
+           // item could not be found
+            let newPerson = User(context: self.context)
+            newPerson.usename = email
+            do{
+                try self.context.save()
+            }catch{
+                
+            }
+        }
+    }
+    func navigateToDashBoard(username:String? = nil){
         let storyboard = UIStoryboard(name: "MoneyManagerDashboard", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "tabbarcontroller")
+        let vc = storyboard.instantiateViewController(withIdentifier: "tabbarcontroller") as! DashboardTabbarVC
+        defaults.set(username, forKey: "username")
+        self.CreateNewUser(email: username!)
+        
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc)
-       
+        
         
     }
     @IBAction func didTapFacebookLogin(_ sender: Any) {
         activityViewIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.activityViewIndicator.stopAnimating()
-            let loginManager = LoginManager()
-            loginManager.logIn(permissions: ["public_profile", "email"], from: self) { [weak self] (result, error) in
-                // Check for error
-                guard error == nil else {
-                    // Error occurred
-                    print(error!.localizedDescription)
-                    return
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: ["public_profile", "email"], from: self) { [weak self] (result, error) in
+            // Check for error
+            guard error == nil else {
+                // Error occurred
+                print(error!.localizedDescription)
+                return
+            }
+            
+            // Check for cancel
+            guard let result = result, !result.isCancelled else {
+                print("User cancelled login")
+                return
+            }
+            // Check the result
+            guard let accessToken = FBSDKLoginKit.AccessToken.current else { return }
+            let graphRequest = FBSDKLoginKit.GraphRequest(graphPath: "me",
+                                                          parameters: ["fields": "email, name"],
+                                                          tokenString: accessToken.tokenString,
+                                                          version: nil,
+                                                          httpMethod: .get)
+            graphRequest.start { (connection, result, error) -> Void in
+                if error == nil {
+                    guard let json = result as? NSDictionary else{
+                        return
+                    }
+                    if let email=json["email"] as? String{
+                        print(email)
+                        self?.activityViewIndicator.stopAnimating()
+                        
+                        self?.navigateToDashBoard(username: email)
+                    }
                 }
-                // Check for cancel
-                guard let result = result, !result.isCancelled else {
-                    print("User cancelled login")
-                    return
+                else {
+                    
                 }
-                // Successfully logged in
-                self?.navigateToDashBoard()
-                }
-       
+            }
         }
     }
     @IBAction func didTapSignUp(_ sender: Any) {
-        let newPerson = User(context: self.context)
-        newPerson.usename = EmailTextField.text
-        defaults.set(EmailTextField.text, forKey: "username")
-        //save the data
-        do{
-            try self.context.save()
-        }catch{
-            
-        }
-        navigateToDashBoard()
-        
-        
-        
- 
-        
+        navigateToDashBoard(username: EmailTextField.text)
     }
     func addUser()-> NSManagedObject?{
         guard let appDelegate =
-          UIApplication.shared.delegate as? AppDelegate else {
-          return nil
-        }
+                UIApplication.shared.delegate as? AppDelegate else {
+                    return nil
+                }
         
         // 1
         let managedContext =
-          appDelegate.persistentContainer.viewContext
+        appDelegate.persistentContainer.viewContext
         
         // 2
         let entity =
-          NSEntityDescription.entity(forEntityName: "User",
-                                     in: managedContext)!
+        NSEntityDescription.entity(forEntityName: "User",
+                                   in: managedContext)!
         
         let person = NSManagedObject(entity: entity,
                                      insertInto: managedContext)
@@ -128,10 +157,10 @@ class SignUpViewController: UIViewController {
         
         // 4
         do {
-          try managedContext.save()
+            try managedContext.save()
             self.userObjectArray.append(person)
         } catch let error as NSError {
-          print("Could not save. \(error), \(error.userInfo)")
+            print("Could not save. \(error), \(error.userInfo)")
         }
         return person
     }
