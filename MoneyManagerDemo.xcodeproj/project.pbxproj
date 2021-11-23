@@ -23,6 +23,7 @@
 		F928D881272A811C0013DC31 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F928D87E272A811C0013DC31 /* Lato-Regular.ttf */; };
 		F928D886272A90310013DC31 /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928D885272A90310013DC31 /* OnBoardViewController.swift */; };
 		F928D888272A95F50013DC31 /* OnBoardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F928D887272A95F50013DC31 /* OnBoardViewController.storyboard */; };
+		F991D7DA274D0AF20045A590 /* SignupViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F991D7D9274D0AF20045A590 /* SignupViewmodel.swift */; };
 		F9C2C639274353270014B80A /* ExpenseSheetModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9C2C637274353270014B80A /* ExpenseSheetModel.xcdatamodeld */; };
 		F9C5CFEB274355C900EC3953 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CFE9274355C900EC3953 /* User+CoreDataClass.swift */; };
 		F9C5CFEC274355C900EC3953 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CFEA274355C900EC3953 /* User+CoreDataProperties.swift */; };
@@ -64,6 +65,7 @@
 		F928D87E272A811C0013DC31 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../SwiftyOnboard/Example/SwiftyOnboardExample/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		F928D885272A90310013DC31 /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
 		F928D887272A95F50013DC31 /* OnBoardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoardViewController.storyboard; sourceTree = "<group>"; };
+		F991D7D9274D0AF20045A590 /* SignupViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewmodel.swift; sourceTree = "<group>"; };
 		F9C2C638274353270014B80A /* ExpenseSheetModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpenseSheetModel.xcdatamodel; sourceTree = "<group>"; };
 		F9C5CFE9274355C900EC3953 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F9C5CFEA274355C900EC3953 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			children = (
 				F9D83A79272C17F200B581EB /* SignupScreen.storyboard */,
 				F9D83A7D272C185900B581EB /* SignUpViewController.swift */,
+				F991D7D9274D0AF20045A590 /* SignupViewmodel.swift */,
 			);
 			path = SignupScreen;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				F9FF4734272FF86E006E0CB5 /* DashBoardViewController.swift in Sources */,
 				F9C2C639274353270014B80A /* ExpenseSheetModel.xcdatamodeld in Sources */,
 				F9D83A77272BE1CA00B581EB /* DesignableTextField.swift in Sources */,
+				F991D7DA274D0AF20045A590 /* SignupViewmodel.swift in Sources */,
 				F928D822272A7DFF0013DC31 /* SceneDelegate.swift in Sources */,
 				F9FF472F272FC137006E0CB5 /* WelcomeScreenViewController.swift in Sources */,
 				F928D839272A80060013DC31 /* CustomOverlay.swift in Sources */,

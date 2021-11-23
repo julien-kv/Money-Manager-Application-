@@ -62,8 +62,8 @@ class SignUpViewController: UIViewController {
             self.activityViewIndicator.stopAnimating()
             self.navigateToDashBoard(username: user?.profile?.email)
         }
-        
     }
+   
     
     func CreateNewUser(email:String){
         do{
