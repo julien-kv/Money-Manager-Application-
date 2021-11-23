@@ -28,6 +28,10 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserNameTextField.delegate=self
+        EmailTextField.delegate=self
+        PwdTextField.delegate=self
+        pwdConfirmTextField.delegate=self
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +64,7 @@ class SignUpViewController: UIViewController {
         }
         
     }
+    
     func CreateNewUser(email:String){
         do{
         tempArray = try context.fetch(User.fetchRequest())
@@ -89,46 +94,68 @@ class SignUpViewController: UIViewController {
         
         
     }
+    func areTextFieldsEmpty()->Bool{
+        if(UserNameTextField.text==""  || EmailTextField.text == "" || PwdTextField.text == "" || pwdConfirmTextField.text == ""){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    func showEmptyTextfieldAlert(){
+        let alert = UIAlertController(title: "Input Fields can't be empty!!",message: "ALl the fields must be filled",preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Done", style: .cancel))
+        self.present(alert, animated: true)
+    }
     @IBAction func didTapFacebookLogin(_ sender: Any) {
-        activityViewIndicator.startAnimating()
-        let loginManager = LoginManager()
-        loginManager.logIn(permissions: ["public_profile", "email"], from: self) { [weak self] (result, error) in
-            // Check for error
-            guard error == nil else {
-                // Error occurred
-                print(error!.localizedDescription)
-                return
-            }
-            
-            // Check for cancel
-            guard let result = result, !result.isCancelled else {
-                print("User cancelled login")
-                return
-            }
-            // Check the result
-            guard let accessToken = FBSDKLoginKit.AccessToken.current else { return }
-            let graphRequest = FBSDKLoginKit.GraphRequest(graphPath: "me",
-                                                          parameters: ["fields": "email, name"],
-                                                          tokenString: accessToken.tokenString,
-                                                          version: nil,
-                                                          httpMethod: .get)
-            graphRequest.start { (connection, result, error) -> Void in
-                if error == nil {
-                    guard let json = result as? NSDictionary else{
-                        return
-                    }
-                    if let email=json["email"] as? String{
-                        print(email)
-                        self?.activityViewIndicator.stopAnimating()
-                        
-                        self?.navigateToDashBoard(username: email)
-                    }
+        if (areTextFieldsEmpty()){
+            showEmptyTextfieldAlert()
+            return
+        }
+        else{
+            activityViewIndicator.startAnimating()
+            let loginManager = LoginManager()
+            loginManager.logIn(permissions: ["public_profile", "email"], from: self) { [weak self] (result, error) in
+                // Check for error
+                guard error == nil else {
+                    // Error occurred
+                    print(error!.localizedDescription)
+                    return
                 }
-                else {
-                    
+                
+                // Check for cancel
+                guard let result = result, !result.isCancelled else {
+                    print("User cancelled login")
+                    self?.activityViewIndicator.stopAnimating()
+                    return
+                }
+                // Check the result
+                guard let accessToken = FBSDKLoginKit.AccessToken.current else { return }
+                let graphRequest = FBSDKLoginKit.GraphRequest(graphPath: "me",
+                                                              parameters: ["fields": "email, name"],
+                                                              tokenString: accessToken.tokenString,
+                                                              version: nil,
+                                                              httpMethod: .get)
+                graphRequest.start { (connection, result, error) -> Void in
+                    if error == nil {
+                        guard let json = result as? NSDictionary else{
+                            return
+                        }
+                        if let email=json["email"] as? String{
+                            print(email)
+                            self?.activityViewIndicator.stopAnimating()
+                            
+                            self?.navigateToDashBoard(username: email)
+                        }
+                    }
+                    else {
+                        
+                    }
                 }
             }
         }
+        
+       
     }
     @IBAction func didTapSignUp(_ sender: Any) {
         navigateToDashBoard(username: EmailTextField.text)
@@ -181,4 +208,20 @@ class SignUpViewController: UIViewController {
     }
     
     //
+}
+
+extension SignUpViewController:UITextFieldDelegate{
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if(textField.text != ""){
+            return true
+        }
+        else{
+            textField.placeholder = "Type Something"
+            return false
+        }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
 }

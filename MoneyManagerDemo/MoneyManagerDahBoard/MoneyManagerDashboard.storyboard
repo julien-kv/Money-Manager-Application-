@@ -108,7 +108,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WM-b9-AQg">
-                                                <rect key="frame" x="20" y="99" width="88" height="16"/>
+                                                <rect key="frame" x="30" y="99" width="88" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="0.46641188859999999" green="0.57086879010000002" blue="0.82748025660000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -118,7 +118,7 @@
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="6WM-b9-AQg" secondAttribute="bottom" constant="5" id="8b7-V2-8d1"/>
                                             <constraint firstAttribute="height" constant="120" id="J5M-Oz-6Ih"/>
-                                            <constraint firstItem="6WM-b9-AQg" firstAttribute="leading" secondItem="5Zb-S4-269" secondAttribute="leading" constant="20" id="JbS-TO-r9V"/>
+                                            <constraint firstItem="6WM-b9-AQg" firstAttribute="leading" secondItem="5Zb-S4-269" secondAttribute="leading" constant="30" id="JbS-TO-r9V"/>
                                             <constraint firstItem="wUF-eQ-vu7" firstAttribute="top" secondItem="5Zb-S4-269" secondAttribute="top" constant="40" id="dul-Iv-Y3F"/>
                                             <constraint firstItem="wUF-eQ-vu7" firstAttribute="centerX" secondItem="5Zb-S4-269" secondAttribute="centerX" id="fbI-TB-kBF"/>
                                         </constraints>

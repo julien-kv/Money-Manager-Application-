@@ -27,6 +27,7 @@ class ExpensePageViewController: UIViewController{
         username = defaults.string(forKey: "username")
         defaults.set(true, forKey: "loggedIn")
         welcomeUsertextLabel.text = "Welcome \(username!)"
+        ExpenseTableVIew.layer.borderColor = UIColor.blue.cgColor
 
         ExpenseTableVIew.dataSource=self
         fetchPeople()

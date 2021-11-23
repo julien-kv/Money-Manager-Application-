@@ -23,11 +23,10 @@ class LoginViewController: UIViewController{
     var email:String?
     var tempArray:[User] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        UserNametextField.delegate=self
+        PasswordTextField.delegate=self
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -56,8 +55,6 @@ class LoginViewController: UIViewController{
             navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    
     @IBAction func didTapGoogleSignIn(_ sender: Any) {
         activityViewIndicator.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -74,7 +71,7 @@ class LoginViewController: UIViewController{
         }catch{
             
         }
-        if let foo = tempArray .firstIndex(where: {$0.usename == email}) {
+        if tempArray .firstIndex(where: {$0.usename == email}) != nil {
            // do something with foo
             return
         } else {
@@ -87,9 +84,6 @@ class LoginViewController: UIViewController{
                 
             }
         }
-        
-        
-       
    }
     func navigateToDashBoard(username:String? = nil){
         let storyboard = UIStoryboard(name: "MoneyManagerDashboard", bundle: nil)
@@ -97,8 +91,6 @@ class LoginViewController: UIViewController{
         defaults.set(username, forKey: "username")
         self.CreateNewUser(email: username!)
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc)
-        
-        
     }
     @IBAction func didTapSignInButton(_ sender: Any) {
         activityViewIndicator.startAnimating()
@@ -122,6 +114,7 @@ class LoginViewController: UIViewController{
             // Check for cancel
             guard let result = result, !result.isCancelled else {
                 print("User cancelled login")
+                self?.activityViewIndicator.stopAnimating()
                 return
             }
             // Successfully logged in
@@ -145,13 +138,9 @@ class LoginViewController: UIViewController{
                     
                 }
             }
-            
             //  self?.navigateToDashBoard(username: self?.email)
         }
-        
     }
-    
-    
     func setupBg(){
         textFieldSet.setuptextFieldForUserNameAndPassword(txtField: UserNametextField,placeHolder: "User Name")
         textFieldSet.setuptextFieldForUserNameAndPassword(txtField: PasswordTextField,placeHolder: "Password")
@@ -161,5 +150,24 @@ class LoginViewController: UIViewController{
         textFieldSet.setButton(btn: SIgnInButton)
         PasswordTextField.isSecureTextEntry = true
         
+    }
+}
+
+extension LoginViewController:UITextFieldDelegate{
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if(textField.text != ""){
+            return true
+        }
+        else{
+            textField.placeholder = "Type Something"
+            return false
+        }
+    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
     }
 }
