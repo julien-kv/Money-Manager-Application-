@@ -23,6 +23,9 @@
 		F928D881272A811C0013DC31 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F928D87E272A811C0013DC31 /* Lato-Regular.ttf */; };
 		F928D886272A90310013DC31 /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928D885272A90310013DC31 /* OnBoardViewController.swift */; };
 		F928D888272A95F50013DC31 /* OnBoardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F928D887272A95F50013DC31 /* OnBoardViewController.storyboard */; };
+		F98A99F3274E019900885D11 /* WelcomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98A99F2274E019900885D11 /* WelcomeScreenViewModel.swift */; };
+		F98A99F8274E055300885D11 /* ExpensePageViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98A99F7274E055300885D11 /* ExpensePageViewmodel.swift */; };
+		F98A99FA274E056600885D11 /* SettingsPageViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98A99F9274E056600885D11 /* SettingsPageViewmodel.swift */; };
 		F991D7DA274D0AF20045A590 /* SignupViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F991D7D9274D0AF20045A590 /* SignupViewmodel.swift */; };
 		F9C2C639274353270014B80A /* ExpenseSheetModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9C2C637274353270014B80A /* ExpenseSheetModel.xcdatamodeld */; };
 		F9C5CFEB274355C900EC3953 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5CFE9274355C900EC3953 /* User+CoreDataClass.swift */; };
@@ -40,7 +43,7 @@
 		F9FF472D272FC128006E0CB5 /* WelcomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FF472C272FC128006E0CB5 /* WelcomeScreen.storyboard */; };
 		F9FF472F272FC137006E0CB5 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FF472E272FC137006E0CB5 /* WelcomeScreenViewController.swift */; };
 		F9FF4731272FF830006E0CB5 /* MoneyManagerDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FF4730272FF830006E0CB5 /* MoneyManagerDashboard.storyboard */; };
-		F9FF4734272FF86E006E0CB5 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FF4733272FF86E006E0CB5 /* DashBoardViewController.swift */; };
+		F9FF4734272FF86E006E0CB5 /* SettingsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FF4733272FF86E006E0CB5 /* SettingsPageViewController.swift */; };
 		F9FF473627300786006E0CB5 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9FF473527300786006E0CB5 /* credentials.plist */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,9 @@
 		F928D87E272A811C0013DC31 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../SwiftyOnboard/Example/SwiftyOnboardExample/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		F928D885272A90310013DC31 /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
 		F928D887272A95F50013DC31 /* OnBoardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoardViewController.storyboard; sourceTree = "<group>"; };
+		F98A99F2274E019900885D11 /* WelcomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewModel.swift; sourceTree = "<group>"; };
+		F98A99F7274E055300885D11 /* ExpensePageViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePageViewmodel.swift; sourceTree = "<group>"; };
+		F98A99F9274E056600885D11 /* SettingsPageViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewmodel.swift; sourceTree = "<group>"; };
 		F991D7D9274D0AF20045A590 /* SignupViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewmodel.swift; sourceTree = "<group>"; };
 		F9C2C638274353270014B80A /* ExpenseSheetModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpenseSheetModel.xcdatamodel; sourceTree = "<group>"; };
 		F9C5CFE9274355C900EC3953 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -82,7 +88,7 @@
 		F9FF472C272FC128006E0CB5 /* WelcomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeScreen.storyboard; sourceTree = "<group>"; };
 		F9FF472E272FC137006E0CB5 /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
 		F9FF4730272FF830006E0CB5 /* MoneyManagerDashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoneyManagerDashboard.storyboard; sourceTree = "<group>"; };
-		F9FF4733272FF86E006E0CB5 /* DashBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
+		F9FF4733272FF86E006E0CB5 /* SettingsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageViewController.swift; sourceTree = "<group>"; };
 		F9FF473527300786006E0CB5 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,8 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				F9C05903274DF2FF009668D4 /* MOdel */,
-				F9FF4732272FF839006E0CB5 /* MoneyManagerDahBoard */,
-				F9FF472B272FC114006E0CB5 /* LoginOrSignup */,
+				F9FF4732272FF839006E0CB5 /* MoneyManagerMainDashBoard */,
+				F9FF472B272FC114006E0CB5 /* Welcome Screen */,
 				F9D83A78272C17D500B581EB /* SignupScreen */,
 				F9D83A75272BE1B600B581EB /* utilities */,
 				F9D83A6C272BB4DF00B581EB /* LoginScreen */,
@@ -181,6 +187,31 @@
 				F928D823272A7DFF0013DC31 /* ViewController.swift */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		F98A99F4274E02FC00885D11 /* Tab1 */ = {
+			isa = PBXGroup;
+			children = (
+				F9CE96162741FB410087223E /* ExpensePageViewController.swift */,
+				F98A99F7274E055300885D11 /* ExpensePageViewmodel.swift */,
+			);
+			path = Tab1;
+			sourceTree = "<group>";
+		};
+		F98A99F5274E030700885D11 /* Tab2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tab2;
+			sourceTree = "<group>";
+		};
+		F98A99F6274E031000885D11 /* Tab3 */ = {
+			isa = PBXGroup;
+			children = (
+				F9FF4733272FF86E006E0CB5 /* SettingsPageViewController.swift */,
+				F98A99F9274E056600885D11 /* SettingsPageViewmodel.swift */,
+			);
+			path = Tab3;
 			sourceTree = "<group>";
 		};
 		F9C05903274DF2FF009668D4 /* MOdel */ = {
@@ -251,24 +282,26 @@
 			path = SignupScreen;
 			sourceTree = "<group>";
 		};
-		F9FF472B272FC114006E0CB5 /* LoginOrSignup */ = {
+		F9FF472B272FC114006E0CB5 /* Welcome Screen */ = {
 			isa = PBXGroup;
 			children = (
 				F9FF472C272FC128006E0CB5 /* WelcomeScreen.storyboard */,
 				F9FF472E272FC137006E0CB5 /* WelcomeScreenViewController.swift */,
+				F98A99F2274E019900885D11 /* WelcomeScreenViewModel.swift */,
 			);
-			path = LoginOrSignup;
+			path = "Welcome Screen";
 			sourceTree = "<group>";
 		};
-		F9FF4732272FF839006E0CB5 /* MoneyManagerDahBoard */ = {
+		F9FF4732272FF839006E0CB5 /* MoneyManagerMainDashBoard */ = {
 			isa = PBXGroup;
 			children = (
+				F98A99F6274E031000885D11 /* Tab3 */,
+				F98A99F5274E030700885D11 /* Tab2 */,
+				F98A99F4274E02FC00885D11 /* Tab1 */,
 				F9FF4730272FF830006E0CB5 /* MoneyManagerDashboard.storyboard */,
-				F9FF4733272FF86E006E0CB5 /* DashBoardViewController.swift */,
-				F9CE96162741FB410087223E /* ExpensePageViewController.swift */,
 				F9C5CFED2743695E00EC3953 /* DashboardTabbarVC.swift */,
 			);
-			path = MoneyManagerDahBoard;
+			path = MoneyManagerMainDashBoard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,7 +433,7 @@
 				F9D83A70272BB51600B581EB /* LoginViewController.swift in Sources */,
 				F928D824272A7DFF0013DC31 /* ViewController.swift in Sources */,
 				F928D820272A7DFF0013DC31 /* AppDelegate.swift in Sources */,
-				F9FF4734272FF86E006E0CB5 /* DashBoardViewController.swift in Sources */,
+				F9FF4734272FF86E006E0CB5 /* SettingsPageViewController.swift in Sources */,
 				F9C2C639274353270014B80A /* ExpenseSheetModel.xcdatamodeld in Sources */,
 				F9D83A77272BE1CA00B581EB /* DesignableTextField.swift in Sources */,
 				F991D7DA274D0AF20045A590 /* SignupViewmodel.swift in Sources */,
@@ -408,15 +441,18 @@
 				F9FF472F272FC137006E0CB5 /* WelcomeScreenViewController.swift in Sources */,
 				F928D839272A80060013DC31 /* CustomOverlay.swift in Sources */,
 				F9D83A7E272C185900B581EB /* SignUpViewController.swift in Sources */,
+				F98A99F3274E019900885D11 /* WelcomeScreenViewModel.swift in Sources */,
 				F9C5CFEC274355C900EC3953 /* User+CoreDataProperties.swift in Sources */,
 				F928D83C272A80060013DC31 /* CustomPage.swift in Sources */,
 				F9FF4726272F9BC4006E0CB5 /* LoginViewModel.swift in Sources */,
 				F9FF472A272FABF4006E0CB5 /* TextFieldSetup.swift in Sources */,
+				F98A99F8274E055300885D11 /* ExpensePageViewmodel.swift in Sources */,
 				F9CE95F2273A319C0087223E /* LoadingIndicator.swift in Sources */,
 				F9C5CFEE2743695E00EC3953 /* DashboardTabbarVC.swift in Sources */,
 				F9C5CFEB274355C900EC3953 /* User+CoreDataClass.swift in Sources */,
 				F9CE96172741FB410087223E /* ExpensePageViewController.swift in Sources */,
 				F928D886272A90310013DC31 /* OnBoardViewController.swift in Sources */,
+				F98A99FA274E056600885D11 /* SettingsPageViewmodel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

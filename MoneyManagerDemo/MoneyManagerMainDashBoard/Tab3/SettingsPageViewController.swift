@@ -9,14 +9,13 @@ import UIKit
 import GoogleSignIn
 import FBSDKLoginKit
 
-class DashBoardViewController: UIViewController {
+class SettingsPageVC: UIViewController {
     @IBOutlet var BgView: UIView!
+    @IBOutlet var usernameLabel: UILabel!
     var textfieldobj=TextFieldSetup()
     var window:UIWindow?
     lazy var activityViewIndicator = LoadingIndicator.addIndicator(view: self.view,type: .ballClipRotateMultiple)
     let defaults = UserDefaults.standard
-    @IBOutlet var usernameLabel: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +29,15 @@ class DashBoardViewController: UIViewController {
         activityViewIndicator.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.activityViewIndicator.stopAnimating()
-            GIDSignIn.sharedInstance.signOut()
-            LoginManager().logOut()
-            self.defaults.set(false, forKey: "loggedIn")
-            if let viewController = UIStoryboard(name: "WelcomeScreen", bundle: nil).instantiateViewController(withIdentifier: "WelcomeScreen") as? WelcomeScreenViewController {
-                let navController = UINavigationController(rootViewController: viewController)
-                SceneDelegate.shared.window?.rootViewController = navController
-            }
-            self.window?.makeKeyAndVisible()
+            SettingsPageViewmodel().doLogout()
+            self.navigateToWelcomeScreen()
+    }
+    }
+    func navigateToWelcomeScreen(){
+        if let viewController = UIStoryboard(name: "WelcomeScreen", bundle: nil).instantiateViewController(withIdentifier: "WelcomeScreen") as? WelcomeScreenViewController {
+            let navController = UINavigationController(rootViewController: viewController)
+            SceneDelegate.shared.window?.rootViewController = navController
         }
-        
+        self.window?.makeKeyAndVisible()
     }
 }
