@@ -115,37 +115,5 @@ class SignupViewmodel{
    
     }
     
-//    func addUser(email:String)-> NSManagedObject?{
-//        guard let appDelegate =
-//                UIApplication.shared.delegate as? AppDelegate else {
-//                    return nil
-//                }
-//
-//        // 1
-//        let managedContext =
-//        appDelegate.persistentContainer.viewContext
-//
-//        // 2
-//        let entity =
-//        NSEntityDescription.entity(forEntityName: "User",
-//                                   in: managedContext)!
-//
-//        let person = NSManagedObject(entity: entity,
-//                                     insertInto: managedContext)
-//
-//        // 3
-//        person.setValue(email, forKeyPath: "username")
-//
-//
-//        // 4
-//        do {
-//            try managedContext.save()
-//            self.userObjectArray.append(person)
-//        } catch let error as NSError {
-//            print("Could not save. \(error), \(error.userInfo)")
-//        }
-//        return person
-//    }
-    
-    //
+
 }

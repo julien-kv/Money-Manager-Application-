@@ -33,22 +33,7 @@ class SignUpViewController: UIViewController {
         setTextfieldView()
     }
     
-    func setTextfieldView(){
-        textfieldSet.gradient(view: view, BgView: BgView)
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        textfieldSet.setuptextFieldForUserNameAndPassword(txtField: UserNameTextField, placeHolder: "Full Name")
-        textfieldSet.setuptextFieldForUserNameAndPassword(txtField: EmailTextField, placeHolder: "Email")
-        textfieldSet.setuptextFieldForUserNameAndPassword(txtField: PwdTextField, placeHolder: "Password")
-        textfieldSet.setuptextFieldForUserNameAndPassword(txtField: pwdConfirmTextField, placeHolder: "Confirm Password")
-        
-        textfieldSet.setTextFieldImage(imgString: "person", txtField: UserNameTextField)
-        textfieldSet.setTextFieldImage(imgString: "lock", txtField: PwdTextField)
-        textfieldSet.setTextFieldImage(imgString: "lock", txtField: pwdConfirmTextField)
-        textfieldSet.setTextFieldImage(imgString: "envelope", txtField: EmailTextField)
-        PwdTextField.isSecureTextEntry = true
-        pwdConfirmTextField.isSecureTextEntry = true
-        textfieldSet.setButton(btn: SignUpButton)
-    }
+
     @IBAction func didTapBackButton(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
@@ -87,6 +72,21 @@ class SignUpViewController: UIViewController {
             let vc = storyboard.instantiateViewController(withIdentifier: "loginScreen")
             navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    func setTextfieldView(){
+        textfieldSet.gradient(view: view, BgView: BgView)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        textfieldSet.setuptextFieldForUserNameAndPassword(txtField: UserNameTextField, placeHolder: "Full Name")
+        textfieldSet.setuptextFieldForUserNameAndPassword(txtField: EmailTextField, placeHolder: "Email")
+        textfieldSet.setuptextFieldForUserNameAndPassword(txtField: PwdTextField, placeHolder: "Password")
+        textfieldSet.setuptextFieldForUserNameAndPassword(txtField: pwdConfirmTextField, placeHolder: "Confirm Password")
+        textfieldSet.setTextFieldImage(imgString: "person", txtField: UserNameTextField)
+        textfieldSet.setTextFieldImage(imgString: "lock", txtField: PwdTextField)
+        textfieldSet.setTextFieldImage(imgString: "lock", txtField: pwdConfirmTextField)
+        textfieldSet.setTextFieldImage(imgString: "envelope", txtField: EmailTextField)
+        PwdTextField.isSecureTextEntry = true
+        pwdConfirmTextField.isSecureTextEntry = true
+        textfieldSet.setButton(btn: SignUpButton)
     }
 }
 
