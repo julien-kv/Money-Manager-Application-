@@ -18,13 +18,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet var PwdTextField: UITextField!
     @IBOutlet var pwdConfirmTextField: UITextField!
     @IBOutlet var SignUpButton: UIButton!
-    lazy var activityViewIndicator = LoadingIndicator.addIndicator(view: self.view,type: .ballClipRotateMultiple)
     var textfieldSet = TextFieldSetup()
-    var userObjectArray:[NSManagedObject] = []
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let defaults = UserDefaults.standard
-    var email:String?
-//var tempArray:[User] = []
     var signupviewmodel = SignupViewmodel()
     
     override func viewDidLoad() {
@@ -36,10 +30,10 @@ class SignUpViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        setBackground()
+        setTextfieldView()
     }
     
-    func setBackground(){
+    func setTextfieldView(){
         textfieldSet.gradient(view: view, BgView: BgView)
         navigationController?.setNavigationBarHidden(true, animated: true)
         textfieldSet.setuptextFieldForUserNameAndPassword(txtField: UserNameTextField, placeHolder: "Full Name")
@@ -58,30 +52,25 @@ class SignUpViewController: UIViewController {
     @IBAction func didTapBackButton(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
+    
     @IBAction func didTapGoogleLoginButton(_ sender: Any) {
-        activityViewIndicator.startAnimating()
-        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
-            guard error == nil else { return }
-            self.activityViewIndicator.stopAnimating()
-            self.signupviewmodel.navigateToDashBoard(username: user?.profile?.email)
-        }
+        signupviewmodel.setupGoogleLogin(vc: self)
     }
     
  
     @IBAction func didTapFacebookLogin(_ sender: Any) {
-        if (signupviewmodel.areTextFieldsEmpty(UserNameTextField: UserNameTextField, EmailTextField: EmailTextField, PwdTextField: PwdTextField, pwdConfirmTextField: pwdConfirmTextField)){
-            
-            signupviewmodel.showEmptyTextfieldAlert(vc: self)
-            return
-        }
-        else{
-            signupviewmodel.setupFbLogin(vc: self)
-        }
-        
-       
+        signupviewmodel.setupFbLogin(vc: self)
     }
+    
     @IBAction func didTapSignUp(_ sender: Any) {
-        self.signupviewmodel.navigateToDashBoard(username: EmailTextField.text)
+                if (signupviewmodel.areTextFieldsEmpty(UserNameTextField: UserNameTextField, EmailTextField: EmailTextField, PwdTextField: PwdTextField, pwdConfirmTextField: pwdConfirmTextField)){
+        
+                    signupviewmodel.showEmptyTextfieldAlert(vc: self)
+                    return
+                }
+                else{
+                    self.signupviewmodel.navigateToDashBoard(username: EmailTextField.text)
+                }
     }
 
     @IBAction func didTapSignIn(_ sender: Any) {
@@ -99,8 +88,6 @@ class SignUpViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    //
 }
 
 extension SignUpViewController:UITextFieldDelegate{

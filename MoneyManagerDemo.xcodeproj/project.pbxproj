@@ -136,8 +136,7 @@
 		F928D81E272A7DFF0013DC31 /* MoneyManagerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				F9C5CFE9274355C900EC3953 /* User+CoreDataClass.swift */,
-				F9C5CFEA274355C900EC3953 /* User+CoreDataProperties.swift */,
+				F9C05903274DF2FF009668D4 /* MOdel */,
 				F9FF4732272FF839006E0CB5 /* MoneyManagerDahBoard */,
 				F9FF472B272FC114006E0CB5 /* LoginOrSignup */,
 				F9D83A78272C17D500B581EB /* SignupScreen */,
@@ -182,6 +181,15 @@
 				F928D823272A7DFF0013DC31 /* ViewController.swift */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		F9C05903274DF2FF009668D4 /* MOdel */ = {
+			isa = PBXGroup;
+			children = (
+				F9C5CFEA274355C900EC3953 /* User+CoreDataProperties.swift */,
+				F9C5CFE9274355C900EC3953 /* User+CoreDataClass.swift */,
+			);
+			path = MOdel;
 			sourceTree = "<group>";
 		};
 		F9D83A68272BAA3000B581EB /* Onboarding */ = {

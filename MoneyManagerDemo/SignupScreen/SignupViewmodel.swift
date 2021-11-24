@@ -58,6 +58,17 @@ class SignupViewmodel{
         alert.addAction(UIAlertAction(title: "Done", style: .cancel))
         vc.present(alert, animated: true)
     }
+    func setupGoogleLogin(vc: UIViewController){
+        let activityViewIndicator = LoadingIndicator.addIndicator(view: vc.view,type: .ballClipRotateMultiple)
+        activityViewIndicator.startAnimating()
+        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: vc) { user, error in
+            guard error == nil else {
+                activityViewIndicator.stopAnimating()
+                return }
+            activityViewIndicator.stopAnimating()
+            self.navigateToDashBoard(username: user?.profile?.email)
+        }
+    }
     
     func setupFbLogin(vc:SignUpViewController){
         let activityViewIndicator = LoadingIndicator.addIndicator(view: vc.view,type: .ballClipRotateMultiple)
@@ -74,7 +85,7 @@ class SignupViewmodel{
             // Check for cancel
             guard let result = result, !result.isCancelled else {
                 print("User cancelled login")
-                vc.activityViewIndicator.stopAnimating()
+                activityViewIndicator.stopAnimating()
                 return
             }
             // Check the result
@@ -91,7 +102,7 @@ class SignupViewmodel{
                     }
                     if let email=json["email"] as? String{
                         print(email)
-                        vc.activityViewIndicator.stopAnimating()
+                        activityViewIndicator.stopAnimating()
                         
                         self?.navigateToDashBoard(username: email)
                     }
