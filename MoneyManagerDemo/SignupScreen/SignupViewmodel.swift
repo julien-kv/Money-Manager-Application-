@@ -18,14 +18,14 @@ class SignupViewmodel{
     
     func CreateNewUser(email:String){
         do{
-        tempArray = try context.fetch(User.fetchRequest())
+            tempArray = try context.fetch(User.fetchRequest())
         }catch{
         }
         if tempArray .firstIndex(where: {$0.usename == email}) != nil {
-           // do something with foo
+            // do something with foo
             return
         } else {
-           // item could not be found
+            // item could not be found
             let newPerson = User(context: self.context)
             newPerson.usename = email
             do{
@@ -33,6 +33,29 @@ class SignupViewmodel{
             }catch{
                 
             }
+        }
+    }
+    func checkIfUserExists(username:String?,vc:UIViewController){
+        do{
+            tempArray = try context.fetch(User.fetchRequest())
+        }catch{
+        }
+        if tempArray .firstIndex(where: {$0.usename == username}) != nil {
+            // do something with foo
+            let alert = UIAlertController(title: "User already exists! ", message: "Please do login", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Done", style: .cancel, handler: .none))
+            vc.present(alert, animated: true, completion: nil)
+        } else {
+            // item could not be found
+            let activityViewIndicator = LoadingIndicator.addIndicator(view: vc.view,type: .ballClipRotateMultiple)
+            activityViewIndicator.startAnimating()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            
+            self.navigateToDashBoard(username: username)
+            activityViewIndicator.stopAnimating()
+            }
+            
+            
         }
     }
     func navigateToDashBoard(username:String? = nil){
@@ -112,8 +135,8 @@ class SignupViewmodel{
                 }
             }
         }
-   
+        
     }
     
-
+    
 }

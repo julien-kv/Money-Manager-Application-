@@ -49,12 +49,14 @@ class SignUpViewController: UIViewController {
     
     @IBAction func didTapSignUp(_ sender: Any) {
                 if (signupviewmodel.areTextFieldsEmpty(UserNameTextField: UserNameTextField, EmailTextField: EmailTextField, PwdTextField: PwdTextField, pwdConfirmTextField: pwdConfirmTextField)){
-        
                     signupviewmodel.showEmptyTextfieldAlert(vc: self)
                     return
                 }
                 else{
-                    self.signupviewmodel.navigateToDashBoard(username: EmailTextField.text)
+
+                    //self.signupviewmodel.navigateToDashBoard(username: EmailTextField.text)
+                    self.signupviewmodel.checkIfUserExists(username: EmailTextField.text, vc: self)
+                    
                 }
     }
 
