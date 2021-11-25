@@ -41,22 +41,22 @@ class SignUpViewController: UIViewController {
     @IBAction func didTapGoogleLoginButton(_ sender: Any) {
         signupviewmodel.setupGoogleLogin(vc: self)
     }
- 
+    
     @IBAction func didTapFacebookLogin(_ sender: Any) {
         signupviewmodel.setupFbLogin(vc: self)
     }
     
     @IBAction func didTapSignUp(_ sender: Any) {
-                if (signupviewmodel.areTextFieldsEmpty(UserNameTextField: UserNameTextField, EmailTextField: EmailTextField, PwdTextField: PwdTextField, pwdConfirmTextField: pwdConfirmTextField)){
-                    signupviewmodel.showEmptyTextfieldAlert(vc: self)
-                    return
-                }
-                else{
-                    //self.signupviewmodel.navigateToDashBoard(username: EmailTextField.text)
-                    self.signupviewmodel.checkIfUserExists(username: EmailTextField.text, vc: self)
-                }
+        if (signupviewmodel.areTextFieldsEmpty(UserNameTextField: UserNameTextField, EmailTextField: EmailTextField, PwdTextField: PwdTextField, pwdConfirmTextField: pwdConfirmTextField)){
+            signupviewmodel.showEmptyTextfieldAlert(vc: self)
+            return
+        }
+        else{
+            //self.signupviewmodel.navigateToDashBoard(username: EmailTextField.text)
+            self.signupviewmodel.checkIfUserExists(username: EmailTextField.text, vc: self)
+        }
     }
-
+    
     @IBAction func didTapSignIn(_ sender: Any) {
         var flag = false
         for controller in self.navigationController!.viewControllers as Array {
@@ -109,19 +109,41 @@ extension SignUpViewController:UITextFieldDelegate{
     }
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if(textField == pwdConfirmTextField){
-            if(textField.text != PwdTextField.text){
-                self.isPwdsSameLabel.isHidden = false
-                self.isPwdsSameLabel.textColor = UIColor.red.withAlphaComponent(0.5)
-                self.isPwdsSameLabel.text = "Passwords do not match!!"
-            }
-            else{
-                self.isPwdsSameLabel.isHidden = false
-                self.isPwdsSameLabel.textColor = UIColor.green.withAlphaComponent(0.5)
-                self.isPwdsSameLabel.text = "Passwords match"
+            if(textField.text == ""){
+                return
+            }else{
+                if(textField.text != PwdTextField.text){
+                    self.isPwdsSameLabel.isHidden = false
+                    self.isPwdsSameLabel.textColor = UIColor.red.withAlphaComponent(0.5)
+                    self.isPwdsSameLabel.text = "Passwords do not match!!"
+                }
+                else{
+                    self.isPwdsSameLabel.isHidden = false
+                    self.isPwdsSameLabel.textColor = UIColor.green.withAlphaComponent(0.5)
+                    self.isPwdsSameLabel.text = "Passwords match"
+                }
             }
             
+            
+        }
+        
+        if(textField == PwdTextField){
+            if(pwdConfirmTextField.text == ""){
+                return
+            }else{
+                if(textField.text != pwdConfirmTextField.text){
+                    self.isPwdsSameLabel.isHidden = false
+                    self.isPwdsSameLabel.textColor = UIColor.red.withAlphaComponent(0.5)
+                    self.isPwdsSameLabel.text = "Passwords do not match!!"
+                }
+                else{
+                    self.isPwdsSameLabel.isHidden = false
+                    self.isPwdsSameLabel.textColor = UIColor.green.withAlphaComponent(0.5)
+                    self.isPwdsSameLabel.text = "Passwords match"
+                }
+            }
         }
     }
-
+    
     
 }
