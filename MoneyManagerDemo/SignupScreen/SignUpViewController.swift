@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet var PwdTextField: UITextField!
     @IBOutlet var pwdConfirmTextField: UITextField!
     @IBOutlet var SignUpButton: UIButton!
+    @IBOutlet var isPwdsSameLabel: UILabel!
     var textfieldSet = TextFieldSetup()
     var signupviewmodel = SignupViewmodel()
     
@@ -33,7 +34,6 @@ class SignUpViewController: UIViewController {
         setTextfieldView()
     }
     
-
     @IBAction func didTapBackButton(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
@@ -41,7 +41,6 @@ class SignUpViewController: UIViewController {
     @IBAction func didTapGoogleLoginButton(_ sender: Any) {
         signupviewmodel.setupGoogleLogin(vc: self)
     }
-    
  
     @IBAction func didTapFacebookLogin(_ sender: Any) {
         signupviewmodel.setupFbLogin(vc: self)
@@ -53,10 +52,8 @@ class SignUpViewController: UIViewController {
                     return
                 }
                 else{
-
                     //self.signupviewmodel.navigateToDashBoard(username: EmailTextField.text)
                     self.signupviewmodel.checkIfUserExists(username: EmailTextField.text, vc: self)
-                    
                 }
     }
 
@@ -75,6 +72,7 @@ class SignUpViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
     func setTextfieldView(){
         textfieldSet.gradient(view: view, BgView: BgView)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -89,6 +87,8 @@ class SignUpViewController: UIViewController {
         PwdTextField.isSecureTextEntry = true
         pwdConfirmTextField.isSecureTextEntry = true
         textfieldSet.setButton(btn: SignUpButton)
+        isPwdsSameLabel.isHidden = true
+        isPwdsSameLabel.font = UIFont(name: "Lato", size: 17)
     }
 }
 
@@ -102,8 +102,26 @@ extension SignUpViewController:UITextFieldDelegate{
             return false
         }
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         return true
     }
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if(textField == pwdConfirmTextField){
+            if(textField.text != PwdTextField.text){
+                self.isPwdsSameLabel.isHidden = false
+                self.isPwdsSameLabel.textColor = UIColor.red.withAlphaComponent(0.5)
+                self.isPwdsSameLabel.text = "Passwords do not match!!"
+            }
+            else{
+                self.isPwdsSameLabel.isHidden = false
+                self.isPwdsSameLabel.textColor = UIColor.green.withAlphaComponent(0.5)
+                self.isPwdsSameLabel.text = "Passwords match"
+            }
+            
+        }
+    }
+
+    
 }

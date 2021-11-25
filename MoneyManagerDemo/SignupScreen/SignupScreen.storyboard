@@ -126,7 +126,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PX-MB-Zfg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQZ-ow-sHj" userLabel="PasswordsameLabel">
+                                <rect key="frame" x="186.5" y="460" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PX-MB-Zfg" userLabel="BottomView">
                                 <rect key="frame" x="0.0" y="502.5" width="414" height="359.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSV-QK-BFX">
@@ -222,7 +228,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Kf-9q-epT"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.46641188859999999" green="0.57086879010000002" blue="0.82748025660000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="ie5-Nt-u80" firstAttribute="centerX" secondItem="fuB-8T-dm8" secondAttribute="centerX" id="0YU-XF-0oL"/>
                             <constraint firstItem="fKd-8l-5Ga" firstAttribute="leading" secondItem="0Kf-9q-epT" secondAttribute="leading" constant="20" id="2Cj-Lc-K3c"/>
@@ -237,9 +243,11 @@
                             <constraint firstItem="0Kf-9q-epT" firstAttribute="trailing" secondItem="WI7-W2-Fh8" secondAttribute="trailing" id="TVY-8h-FcK"/>
                             <constraint firstItem="0Kf-9q-epT" firstAttribute="trailing" secondItem="9PX-MB-Zfg" secondAttribute="trailing" id="ZSA-4F-SON"/>
                             <constraint firstItem="ie5-Nt-u80" firstAttribute="leading" secondItem="0Kf-9q-epT" secondAttribute="leading" constant="30" id="bMX-mE-Rf2"/>
-                            <constraint firstItem="9PX-MB-Zfg" firstAttribute="top" secondItem="ie5-Nt-u80" secondAttribute="bottom" constant="50" id="gLn-3w-ixi"/>
+                            <constraint firstItem="EQZ-ow-sHj" firstAttribute="top" secondItem="ie5-Nt-u80" secondAttribute="bottom" constant="7.5" id="gLn-3w-ixi"/>
                             <constraint firstItem="0Kf-9q-epT" firstAttribute="trailing" secondItem="ie5-Nt-u80" secondAttribute="trailing" constant="30" id="lCG-SH-JMW"/>
                             <constraint firstItem="arU-xy-taC" firstAttribute="centerX" secondItem="fuB-8T-dm8" secondAttribute="centerX" id="mMG-Wr-SP0"/>
+                            <constraint firstItem="EQZ-ow-sHj" firstAttribute="centerX" secondItem="fuB-8T-dm8" secondAttribute="centerX" id="pUT-I4-C13"/>
+                            <constraint firstItem="9PX-MB-Zfg" firstAttribute="top" secondItem="EQZ-ow-sHj" secondAttribute="bottom" constant="22" id="wNG-Ie-ezk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dmr-dV-qju"/>
@@ -249,6 +257,7 @@
                         <outlet property="PwdTextField" destination="5Qs-td-Dz7" id="w6N-TP-gpz"/>
                         <outlet property="SignUpButton" destination="eSV-QK-BFX" id="QyM-d2-bNb"/>
                         <outlet property="UserNameTextField" destination="UEv-Dx-V5w" id="TPs-eA-GBY"/>
+                        <outlet property="isPwdsSameLabel" destination="EQZ-ow-sHj" id="wt4-MD-LTb"/>
                         <outlet property="pwdConfirmTextField" destination="GvM-DL-reH" id="ZI5-BJ-2fl"/>
                     </connections>
                 </viewController>

@@ -54,10 +54,9 @@ class SignupViewmodel{
             self.navigateToDashBoard(username: username)
             activityViewIndicator.stopAnimating()
             }
-            
-            
         }
     }
+    
     func navigateToDashBoard(username:String? = nil){
         let storyboard = UIStoryboard(name: "MoneyManagerDashboard", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "tabbarcontroller") as! DashboardTabbarVC
@@ -65,9 +64,8 @@ class SignupViewmodel{
         self.CreateNewUser(email: username!)
         
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc)
-        
-        
     }
+    
     func areTextFieldsEmpty(UserNameTextField:UITextField,EmailTextField:UITextField,PwdTextField:UITextField, pwdConfirmTextField:UITextField)->Bool{
         if(UserNameTextField.text==""  || EmailTextField.text == "" || PwdTextField.text == "" || pwdConfirmTextField.text == ""){
             return true
@@ -76,11 +74,13 @@ class SignupViewmodel{
             return false
         }
     }
+    
     func showEmptyTextfieldAlert(vc:SignUpViewController){
         let alert = UIAlertController(title: "Input Fields can't be empty!!",message: "ALl the fields must be filled",preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Done", style: .cancel))
         vc.present(alert, animated: true)
     }
+    
     func setupGoogleLogin(vc: UIViewController){
         let activityViewIndicator = LoadingIndicator.addIndicator(view: vc.view,type: .ballClipRotateMultiple)
         activityViewIndicator.startAnimating()
