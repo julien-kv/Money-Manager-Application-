@@ -6,7 +6,7 @@ For Running this Application in your iOS devices
 
 1: Install the podfile <br>
 2: open MoneyManagerDemo.xcworkspace file <br>
-3: We have used some external fonts in this app, so you need to add the fonts to the info.plist file <br>
+3: We have used some external fonts in this app, so you need to add the fonts to the info.plist file in the rquired format <br>
 
 
 
